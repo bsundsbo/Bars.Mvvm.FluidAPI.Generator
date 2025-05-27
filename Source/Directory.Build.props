@@ -14,11 +14,19 @@
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
-    <ItemGroup>
+    <ItemGroup Condition="$(IsRoslynComponent) == 'true'">
         <!-- Workaround: Project reference to FluidApi.Common is for some reason not included in the deploy, so while
          I figure this one out in a reliable way, I work around it with Link -->
-        <Compile Include="..\FluidApi.Common\*.cs" Condition="$(IsRoslynComponent) == 'true'">
+        <Compile Include="..\FluidApi.Common\*.cs">
             <Link>FluidApi.Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
         </Compile>
     </ItemGroup>
+
+<!--    <PropertyGroup Condition="$(IsRoslynComponent) == 'true'">-->
+<!--        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>-->
+<!--        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>-->
+<!--    </PropertyGroup>-->
+<!--    <ItemGroup Condition="$(IsRoslynComponent) == 'true'">-->
+<!--        <PackageReference Include="Scriban" IncludeAssets="Build" />-->
+<!--    </ItemGroup>-->
 </Project>

@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:bars="http://schemas.actiprosoftware.com/winfx/xaml/bars"
         xmlns:themes="http://schemas.actiprosoftware.com/winfx/xaml/themes"
-        xmlns:sample="clr-namespace:Bars.Mvvm.FluidGenerator.Sample"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        d:DataContext="{d:DesignInstance Type=sample:SampleViewModel, IsDesignTimeCreatable=False}">
+        Title="MainWindow" Height="450" Width="800">
     <DockPanel>
         <bars:RibbonContainerPanel>
             <bars:Ribbon Margin="0"

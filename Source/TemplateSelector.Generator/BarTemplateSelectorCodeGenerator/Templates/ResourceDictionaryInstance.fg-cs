@@ -1,0 +1,8 @@
+    [ThreadStatic]
+    private static {{ResourceDictionaryClassName}} _instance;
+
+    /// <summary>
+    /// Gets the singleton instance of the resource dictionary.
+    /// </summary>
+    /// <remarks>The singleton instance of the is not shared between threads.</remarks>
+    public static {{ResourceDictionaryClassName}} Instance => _instance ??= new {{ResourceDictionaryClassName}}();
