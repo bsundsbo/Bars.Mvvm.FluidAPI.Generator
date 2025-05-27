@@ -134,5 +134,5 @@ public class FluidExtensionCodeGenerator
         sourceBuilder.AppendLine(customTemplates);
     }
 
-    private string MemberRenamer(MemberInfo member) => member.Name;
+    private static string MemberRenamer(MemberInfo member) => member.Name;
 }

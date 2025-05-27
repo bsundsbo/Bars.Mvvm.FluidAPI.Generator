@@ -14,7 +14,7 @@ public class SampleViewModel : ObservableObjectBase
     {
         var templateSelector = new BarControlTemplateSelector();
         var imageProvider = new BarImageProvider();
-        // TODO: register some images;
+
         Ribbon = new RibbonViewModel()
             .WithItemContainerTemplateSelector(templateSelector)
             .WithQuickAccessToolBarMode(RibbonQuickAccessToolBarMode.None)
@@ -30,6 +30,7 @@ public class SampleViewModel : ObservableObjectBase
             .WithTab(new RibbonTabViewModel("Tab1")
                 .WithLabel("Tab label")
                 .WithDescription("Tab description")
+                .WithGroups(new []{})
                 .WithGroup(new RibbonGroupViewModel("Group1")
                     .WithItem(new BarButtonViewModel("Button1"))
                     .WithItem(new BarButtonViewModel("Button2")
@@ -40,8 +41,16 @@ public class SampleViewModel : ObservableObjectBase
                                 _ => MessageBox.Show("Button3 clicked")
                             )
                         )
-                        .WithImages(imageProvider, SampleControlKeys.BarButton3)
+                        .WithImages(imageProvider, BarControlKeys.BarButton3)
                     )
                 ));
+        var setTextAlignmentCommand = new DelegateCommand<string>(_ => MessageBox.Show("Button3 clicked"));
+        var viewModels = new BarControlViewModelCollection();
+
+        viewModels.Register(BarControlKeys.AlignCenter, key
+            => new BarToggleButtonViewModel(key)
+                .WithCommand(setTextAlignmentCommand, TextAlignment.Center)
+                .WithKeyTipText("AC")
+                .WithDescription("Center content with the page."));
     }
 }

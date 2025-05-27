@@ -48,12 +48,6 @@ internal class BarTemplateSelectorCodeGenerator
         sourceBuilder.AppendLine();
         sourceBuilder.AppendLineWithIndent(1, $"public {dictionaryClassName}()");
         sourceBuilder.AppendLineStartBracket(1);
-        // sourceBuilder.AppendLineWithIndent(2, "#pragma warning disable CS0184");
-        // sourceBuilder.AppendLineWithIndent(2, "if(this is System.Windows.Markup.IComponentConnector connector)");
-        // sourceBuilder.AppendLineWithIndent(2, "#pragma warning restore CS0184");
-        // sourceBuilder.AppendLineStartBracket(2);
-        // sourceBuilder.AppendLineWithIndent(3, "connector.InitializeComponent();");
-        // sourceBuilder.AppendLineEndBracket(2);
         sourceBuilder.AppendLineEndBracket(1);
         sourceBuilder.AppendLineEndBracket(0);
     }
