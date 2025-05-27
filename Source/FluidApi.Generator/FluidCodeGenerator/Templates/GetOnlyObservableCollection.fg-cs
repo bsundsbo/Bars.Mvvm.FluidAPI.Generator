@@ -1,0 +1,28 @@
+    /// <inheritdoc cref="{{ClassName}}.{{PropertyName}}"/>
+    /// <param name="target">The instance to manipulate</param>
+    /// <param name="{{ParameterName}}">The items to add to <see cref="{{ClassName}}.{{PropertyName}}" />.</param>
+    /// <returns>The incoming <paramref name="target" /> to chain calls.</returns>
+    public static {{ClassName}} With{{PropertyName}}(this {{ClassName}} target, IEnumerable<{{TypeArgument}}> {{ParameterName}})
+    {
+        if ({{ParameterName}} is null)
+        {
+            throw new ArgumentNullException(nameof({{ParameterName}}));
+        }
+
+        foreach (var item in {{ParameterName}})
+        {
+            target.{{PropertyName}}.Add(item);
+        }
+
+        return target;
+    }
+
+    /// <inheritdoc cref="{{ClassName}}.{{PropertyName}}"/>
+    /// <param name="target">The instance to manipulate</param>
+    /// <param name="{{ParameterNameSingular}}">Add a single item to <see cref="{{ClassName}}.{{PropertyName}}" />.</param>
+    /// <returns>The incoming <paramref name="target" /> to chain calls.</returns>
+    public static {{ClassName}} With{{PropertyNameSingular}}(this {{ClassName}} target, {{TypeArgument}} {{ParameterNameSingular}})
+    {
+        target.{{PropertyName}}.Add({{ParameterNameSingular}});
+        return target;
+    }

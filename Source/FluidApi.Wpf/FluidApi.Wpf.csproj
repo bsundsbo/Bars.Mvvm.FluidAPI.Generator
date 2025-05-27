@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net9.0-windows;net8.0-windows;net6.0-windows</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <UseWpf>true</UseWpf>
+    </PropertyGroup>
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>true</IsPackable>
+        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm.FluidGenerator</PackageProjectUrl>
+        <PackageId>Bars.Mvvm.FluidApi.Wpf</PackageId>
+        <!-- Project is packable -->
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <DevelopmentDependency>true</DevelopmentDependency>
+    </PropertyGroup>
+
+<!--    <PropertyGroup>-->
+<!--        <EmitCompilerGeneratedFiles>True</EmitCompilerGeneratedFiles>-->
+<!--        <CompilerGeneratedFilesOutputPath>ImageMapper\Generated</CompilerGeneratedFilesOutputPath>-->
+<!--    </PropertyGroup>-->
+
+    <ItemGroup>
+        <PackageReference Include="ActiproSoftware.Controls.WPF.Bars.Mvvm"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj"
+                          OutputItemType="Analyzer"
+                          ReferenceOutputAssembly="false"/>
+    </ItemGroup>
+</Project>

@@ -1,0 +1,24 @@
+<Project>
+    <ItemGroup>
+        <PackageReference Include="StyleCop.Analyzers">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="SonarAnalyzer.CSharp">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Workaround: Project reference to FluidApi.Common is for some reason not included in the deploy, so while
+         I figure this one out in a reliable way, I work around it with Link -->
+        <Compile Include="..\FluidApi.Common\*.cs" Condition="$(IsRoslynComponent) == 'true'">
+            <Link>FluidApi.Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
+        </Compile>
+    </ItemGroup>
+</Project>
