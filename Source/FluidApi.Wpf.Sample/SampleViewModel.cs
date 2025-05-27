@@ -12,13 +12,9 @@ public class SampleViewModel : ObservableObjectBase
 
     public SampleViewModel()
     {
-        var templateSelector = new BarControlTemplateSelector();
-        var imageProvider = new BarImageProvider();
-
         Ribbon = new RibbonViewModel()
-            .WithItemContainerTemplateSelector(templateSelector)
+            .WithItemContainerTemplateSelector(new CustomDataTemplateSelector())
             .WithQuickAccessToolBarMode(RibbonQuickAccessToolBarMode.None)
-            .WithIsOptionsButtonVisible(false)
             .WithLayoutMode(RibbonLayoutMode.Simplified)
             .WithApplicationButton(new RibbonApplicationButtonViewModel("ApplicationButton")
                 .WithLabel("Magic")
@@ -30,27 +26,18 @@ public class SampleViewModel : ObservableObjectBase
             .WithTab(new RibbonTabViewModel("Tab1")
                 .WithLabel("Tab label")
                 .WithDescription("Tab description")
-                .WithGroups(new []{})
                 .WithGroup(new RibbonGroupViewModel("Group1")
                     .WithItem(new BarButtonViewModel("Button1"))
                     .WithItem(new BarButtonViewModel("Button2")
                         .WithCommand(new DelegateCommand<string>(s => MessageBox.Show(s)), commandParameter: "this is the parameter")
                     )
-                    .WithItem(new BarButtonViewModel("Button3")
-                        .WithCommand(new DelegateCommand<string>(
-                                _ => MessageBox.Show("Button3 clicked")
+                    .WithItem(new BarButtonViewModel(SampleControlKeys.BarButton3)
+                        .WithCommand(new DelegateCommand<string>(_ => MessageBox.Show("Button3 clicked")
                             )
                         )
-                        .WithImages(imageProvider, BarControlKeys.BarButton3)
                     )
+                    .WithItem(new RedBarButtonViewModel("buttonRed"))
+                    .WithItem(new BlueBarButtonViewModel("buttonBlue"))
                 ));
-        var setTextAlignmentCommand = new DelegateCommand<string>(_ => MessageBox.Show("Button3 clicked"));
-        var viewModels = new BarControlViewModelCollection();
-
-        viewModels.Register(BarControlKeys.AlignCenter, key
-            => new BarToggleButtonViewModel(key)
-                .WithCommand(setTextAlignmentCommand, TextAlignment.Center)
-                .WithKeyTipText("AC")
-                .WithDescription("Center content with the page."));
     }
 }

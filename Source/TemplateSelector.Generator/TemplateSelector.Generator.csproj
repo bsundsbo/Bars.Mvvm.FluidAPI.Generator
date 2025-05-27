@@ -30,16 +30,17 @@
         <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
     </ItemGroup>
     <ItemGroup>
-      <Compile Remove="FluidApi.Common\**" />
+      <EmbeddedResource Include="BarTemplateSelectorCodeGenerator\Templates\BarTemplateSelectorAttribute.fg-cs" />
+      <EmbeddedResource Include="BarTemplateSelectorCodeGenerator\Templates\ComponentResourceKey.fg-cs" />
+      <EmbeddedResource Include="BarTemplateSelectorCodeGenerator\Templates\ResourceDictionaryInstance.fg-cs" />
     </ItemGroup>
+
+    <PropertyGroup>
+        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>
+    </PropertyGroup>
     <ItemGroup>
-      <EmbeddedResource Remove="FluidApi.Common\**" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Remove="FluidApi.Common\**" />
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="BarTemplateSelectorCodeGenerator\Templates\" />
+        <PackageReference Include="Scriban" IncludeAssets="Build" />
     </ItemGroup>
 
 </Project>

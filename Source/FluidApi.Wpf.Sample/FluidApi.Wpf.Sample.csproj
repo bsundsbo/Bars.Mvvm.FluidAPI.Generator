@@ -16,7 +16,20 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" 
+                          OutputItemType="Analyzer" 
+                          ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\TemplateSelector.Generator\TemplateSelector.Generator.csproj"
+                          OutputItemType="Analyzer" 
+                          ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="TemplateSelectors\CustomDataTemplateSelectorResourceDictionary.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
 </Project>

@@ -1,2 +1,2 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 Console.WriteLine("Hello, World!");

@@ -2,6 +2,8 @@ using Bars.Mvvm.FluidApi.Common;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using System.Collections.Immutable;
 
 namespace Bars.Mvvm.Resource.Generator;
 
@@ -17,45 +19,50 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
         {
             // Generate marker attribute for the source generator
             ctx.AddSource($"{BarTemplateSelectorAttributeCodeGenerator.AttributeClassName}.g.cs",
-                BarTemplateSelectorAttributeCodeGenerator.Generate());
+                BarTemplateSelectorAttributeCodeGenerator.Instance.Generate());
         });
 
-        IncrementalValuesProvider<ClassModel> provider = context.SyntaxProvider
+        var attributedClasses = context.SyntaxProvider
             .ForAttributeWithMetadataName(fullyQualifiedMetadataName: BarTemplateSelectorAttributeCodeGenerator.FullyQualifiedAttributeName,
-                predicate: static (node, cancellationToken_) => node is ClassDeclarationSyntax,
-                transform: static (ctx, cancellationToken) =>
+
+                predicate: static (node, _) => true, // accept all — filtered later
+                transform: static (ctx, ct) =>
                 {
-                    ISymbol classSymbol = ctx.TargetSymbol;
+                    var classSymbol = ctx.TargetSymbol as INamedTypeSymbol;
+                    if (classSymbol is null)
+                    {
+                        return default;
+                    }
 
-                    return new ClassModel(classSymbol.Name,
-                        classSymbol.ContainingNamespace.ToDisplayString(),
-                        GetProperties(classSymbol as INamedTypeSymbol));
-                });
+                    var attr = ctx.Attributes.FirstOrDefault();
+                    if (attr is null || attr.ConstructorArguments.Length == 0)
+                    {
+                        return default;
+                    }
 
-        context.RegisterSourceOutput(provider, static (context, classModel) =>
+                    var arg = attr.ConstructorArguments[0];
+                    var dictType = arg.Value as INamedTypeSymbol;
+                    return dictType is null
+                        ? default((INamedTypeSymbol, INamedTypeSymbol))
+                        : (classSymbol, dictType);
+
+                })
+            .Where(static pair => pair.Item1 is not null && pair.Item2 is not null)
+            .Collect();
+
+        context.RegisterSourceOutput(attributedClasses, static (ctx, items) =>
         {
-            string sourceCode = BarTemplateSelectorCodeGenerator.Generate(classModel);
+            foreach (var (classSymbol, dictionarySymbol) in items!)
+            {
+                var dictName = dictionarySymbol.ToDisplayString();
 
-            //Concat class name and interface name to have unique file name if a class implements two interfaces with AutoImplement Attribute
-            string generatedFileName = $"{classModel.Name}.g.cs";
-            context.AddSource(generatedFileName, sourceCode);
+                string sourceCode = BarTemplateSelectorCodeGenerator.Instance.Generate(classSymbol, dictionarySymbol);
+
+                ctx.AddSource($"{classSymbol.Name}.g.cs", sourceCode);
+                ctx.ReportDiagnostic(Diagnostic.Create(
+                    new DiagnosticDescriptor("GEN001", "Found Dictionary", $"Class {classSymbol.Name} references ResourceDictionary: {dictName}", "Generator", DiagnosticSeverity.Info, true),
+                    classSymbol.Locations.FirstOrDefault()));
+            }
         });
-    }
-
-    private static EquatableList<IPropertySymbol> GetProperties(INamedTypeSymbol? classSymbol)
-    {
-        EquatableList<IPropertySymbol> ret = [];
-        if (classSymbol == null)
-        {
-            return ret;
-        }
-
-        var properties = classSymbol.GetMembers()
-            .OfType<IPropertySymbol>()
-            .Where(p => p.DeclaredAccessibility == Accessibility.Public && p is {IsStatic: false, IsReadOnly: false})
-            .ToList();
-
-        ret.AddRange(properties);
-        return ret;
     }
 }
