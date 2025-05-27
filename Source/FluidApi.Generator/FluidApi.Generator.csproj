@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Bars.Mvvm.FluidApi.Generator</RootNamespace>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+    </PropertyGroup>
+    <PropertyGroup>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <PackageId>FluidApi.Generator</PackageId>
+        <!-- Project is packable -->
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="FluidApi.Generator.Tests" />
+        <InternalsVisibleTo Include="FluidApi.Generator.Wpf.Test" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Package the generator in the analyzer directory of the nuget package -->
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\BarComboBoxViewModel.fg-cs" />
+        <EmbeddedResource Include="FluidCodeGenerator\Templates\DefaultProperty.fg-cs"/>
+        <EmbeddedResource Include="FluidCodeGenerator\Templates\CommandWithParameter.fg-cs"/>
+        <EmbeddedResource Include="FluidCodeGenerator\Templates\GetOnlyObservableCollection.fg-cs"/>
+        <EmbeddedResource Include="FluidCodeGenerator\Templates\BooleanProperty.fg-cs"/>
+        <EmbeddedResource Include="FluidCodeGenerator\Templates\HasVariantImages.fg-cs"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Scriban" IncludeAssets="Build" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="FluidCodeGenerator\CustomExtensions\Avalonia\" />
+    </ItemGroup>
+</Project>

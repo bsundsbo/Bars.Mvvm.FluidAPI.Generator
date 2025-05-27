@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Generator", "FluidApi.Generator\FluidApi.Generator.csproj", "{9EA971C1-8D25-495F-AB43-D51981459D4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Wpf.Console", "FluidApi.Wpf.Console\FluidApi.Wpf.Console.csproj", "{9664269B-E9AB-4D09-9FE7-84C6D81F681E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Wpf.Sample", "FluidApi.Wpf.Sample\FluidApi.Wpf.Sample.csproj", "{0D29772A-5109-4D9B-8546-C29CAECF3B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Generator.Tests", "FluidApi.Generator.Tests\FluidApi.Generator.Tests.csproj", "{66660992-6D45-4A59-AE3C-B943961327DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = ..\.editorconfig
+		README.md = ..\README.md
+		Directory.Build.props = Directory.Build.props
+		.ruleset = .ruleset
+		Directory.Packages.props = Directory.Packages.props
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Common", "FluidApi.Common\FluidApi.Common.csproj", "{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSelector.Generator", "TemplateSelector.Generator\TemplateSelector.Generator.csproj", "{0B93C1F4-DA6F-4D90-8CAB-FCBA1F8A5F3E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{32D7E9E8-71A2-4896-A862-19BEFC0F54B6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{115177F1-0D7E-4995-91AA-C8EFCC491FD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Generator.Wpf.Test", "FluidApi.Generator.Wpf.Test\FluidApi.Generator.Wpf.Test.csproj", "{94DDD2DE-D0D8-49B5-97ED-8405F790429B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Wpf", "FluidApi.Wpf\FluidApi.Wpf.csproj", "{38569010-DEEE-49FC-8A01-21239A2EFAE4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9664269B-E9AB-4D09-9FE7-84C6D81F681E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9664269B-E9AB-4D09-9FE7-84C6D81F681E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9664269B-E9AB-4D09-9FE7-84C6D81F681E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9664269B-E9AB-4D09-9FE7-84C6D81F681E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D29772A-5109-4D9B-8546-C29CAECF3B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D29772A-5109-4D9B-8546-C29CAECF3B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D29772A-5109-4D9B-8546-C29CAECF3B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D29772A-5109-4D9B-8546-C29CAECF3B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66660992-6D45-4A59-AE3C-B943961327DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66660992-6D45-4A59-AE3C-B943961327DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66660992-6D45-4A59-AE3C-B943961327DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66660992-6D45-4A59-AE3C-B943961327DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B93C1F4-DA6F-4D90-8CAB-FCBA1F8A5F3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B93C1F4-DA6F-4D90-8CAB-FCBA1F8A5F3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B93C1F4-DA6F-4D90-8CAB-FCBA1F8A5F3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B93C1F4-DA6F-4D90-8CAB-FCBA1F8A5F3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94DDD2DE-D0D8-49B5-97ED-8405F790429B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94DDD2DE-D0D8-49B5-97ED-8405F790429B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94DDD2DE-D0D8-49B5-97ED-8405F790429B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94DDD2DE-D0D8-49B5-97ED-8405F790429B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38569010-DEEE-49FC-8A01-21239A2EFAE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38569010-DEEE-49FC-8A01-21239A2EFAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38569010-DEEE-49FC-8A01-21239A2EFAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38569010-DEEE-49FC-8A01-21239A2EFAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {345234F6-8235-4E70-ABD1-396D68410CD5}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0D29772A-5109-4D9B-8546-C29CAECF3B74} = {32D7E9E8-71A2-4896-A862-19BEFC0F54B6}
+		{9664269B-E9AB-4D09-9FE7-84C6D81F681E} = {32D7E9E8-71A2-4896-A862-19BEFC0F54B6}
+		{66660992-6D45-4A59-AE3C-B943961327DD} = {115177F1-0D7E-4995-91AA-C8EFCC491FD8}
+		{94DDD2DE-D0D8-49B5-97ED-8405F790429B} = {115177F1-0D7E-4995-91AA-C8EFCC491FD8}
+	EndGlobalSection
+EndGlobal

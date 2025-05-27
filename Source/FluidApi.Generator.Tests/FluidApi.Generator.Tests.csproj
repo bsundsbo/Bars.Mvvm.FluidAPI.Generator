@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Bars.Mvvm.FluidGenerator.Tests</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+<!--        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Testing" />-->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" />
+        <PackageReference Include="xunit.v3" />
+        <PackageReference Include="xunit.v3.runner.common" />
+        <PackageReference Include="NSubstitute" />
+        <PackageReference Include="FluentAssertions" />
+    </ItemGroup>
+</Project>

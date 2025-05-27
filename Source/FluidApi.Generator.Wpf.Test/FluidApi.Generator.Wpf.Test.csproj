@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Bars.Mvvm.FluidGenerator.Tests</RootNamespace>
+        <UseWpf>true</UseWpf>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\FluidApi.Common\FluidApi.Common.csproj" />
+        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ActiproSoftware.Controls.WPF.Bars.Mvvm" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk"  />
+        <PackageReference Include="xunit.v3" />
+        <PackageReference Include="xunit.v3.common" />
+        <PackageReference Include="xunit.v3.runner.common" />
+        <PackageReference Include="NSubstitute" />
+        <PackageReference Include="FluentAssertions" />
+    </ItemGroup>
+</Project>

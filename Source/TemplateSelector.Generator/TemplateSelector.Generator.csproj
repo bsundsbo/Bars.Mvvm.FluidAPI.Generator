@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Bars.Mvvm.Resource.Generator</RootNamespace>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+    </PropertyGroup>
+    <PropertyGroup>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <PackageId>TemplateSelector.Generator</PackageId>
+        <!-- Project is packable -->
+        <IsPackable>true</IsPackable>
+        <!-- Generates a package at build -->
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- Do not include the generator as a lib dependency -->
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Remove="FluidApi.Common\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Remove="FluidApi.Common\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="FluidApi.Common\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="BarTemplateSelectorCodeGenerator\Templates\" />
+    </ItemGroup>
+
+</Project>

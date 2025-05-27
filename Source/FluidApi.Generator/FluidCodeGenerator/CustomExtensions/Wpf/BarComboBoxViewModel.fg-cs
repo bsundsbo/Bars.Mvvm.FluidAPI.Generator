@@ -1,0 +1,14 @@
+    /// <summary>
+    /// Sets the <see cref="BarComboBoxViewModel.UnmatchedTextCommand"/> and <see cref="BarComboBoxViewModel.IsUnmatchedTextAllowed"/> properties
+    /// on the target <see cref="BarComboBoxViewModel"/>.
+    /// </summary>
+    /// <param name="target">The target Combobox</param>
+    /// <param name="unmatchedTextCommand">The command to execute for the <see cref="BarComboBoxViewModel.UnmatchedTextCommand"/>.</param>
+    /// <param name="isUnmatchedTextAllowed">The value for <see cref="BarComboBoxViewModel.IsUnmatchedTextAllowed"/>.</param>
+    /// <returns></returns>
+    public static BarComboBoxViewModel WithUnmatchedTextCommand(this BarComboBoxViewModel target, System.Windows.Input.ICommand unmatchedTextCommand, bool isUnmatchedTextAllowed)
+    {
+        target.UnmatchedTextCommand = unmatchedTextCommand;
+        target.IsUnmatchedTextAllowed = isUnmatchedTextAllowed;
+        return target;
+    }
