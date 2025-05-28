@@ -1,6 +1,6 @@
 ﻿using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 
-namespace Bars.Mvvm.TemplateSelector.Console;
+namespace TemplateSelector.Wpf.Console;
 
 /// <summary>
 /// Red button view model.

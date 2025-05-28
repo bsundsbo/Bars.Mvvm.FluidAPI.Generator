@@ -2,5 +2,6 @@
 
 public static class SampleControlKeys
 {
-    public const string BarButton3 = "BarButton3";
+    public const string Copy = nameof(Copy);
+    public static string Cut => nameof(Cut);
 }

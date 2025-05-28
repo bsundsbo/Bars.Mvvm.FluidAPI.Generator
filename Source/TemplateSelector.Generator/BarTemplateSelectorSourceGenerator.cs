@@ -28,24 +28,33 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
                 predicate: static (node, _) => true, // accept all — filtered later
                 transform: static (ctx, ct) =>
                 {
-                    var classSymbol = ctx.TargetSymbol as INamedTypeSymbol;
-                    if (classSymbol is null)
+                    try
                     {
-                        return default;
-                    }
+                        var classSymbol = ctx.TargetSymbol as INamedTypeSymbol;
+                        if (classSymbol is null)
+                        {
+                            return default;
+                        }
 
-                    var attr = ctx.Attributes.FirstOrDefault();
-                    if (attr is null || attr.ConstructorArguments.Length == 0)
+                        var attr = ctx.Attributes.FirstOrDefault();
+                        if (attr is null || attr.ConstructorArguments.Length == 0)
+                        {
+                            return default;
+                        }
+
+                        var arg = attr.ConstructorArguments[0];
+                        return arg.Value is not INamedTypeSymbol dictType
+                            ? default((INamedTypeSymbol, INamedTypeSymbol))
+                            : (classSymbol, dictType);
+
+                    }
+                    catch (Exception e)
                     {
-                        return default;
+                        // ctx.ReportDiagnostic(Diagnostic.Create(
+                        //     new DiagnosticDescriptor("GEN001", "Error generating type", $"Target class {classSymbol.Name} : {e}", "Generator", DiagnosticSeverity.Error, true),
+                        //     classSymbol.Locations.FirstOrDefault()));
+                        return default((INamedTypeSymbol, INamedTypeSymbol));
                     }
-
-                    var arg = attr.ConstructorArguments[0];
-                    var dictType = arg.Value as INamedTypeSymbol;
-                    return dictType is null
-                        ? default((INamedTypeSymbol, INamedTypeSymbol))
-                        : (classSymbol, dictType);
-
                 })
             .Where(static pair => pair.Item1 is not null && pair.Item2 is not null)
             .Collect();
@@ -56,12 +65,21 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
             {
                 var dictName = dictionarySymbol.ToDisplayString();
 
-                string sourceCode = BarTemplateSelectorCodeGenerator.Instance.Generate(classSymbol, dictionarySymbol);
+                try
+                {
+                    string sourceCode = BarTemplateSelectorCodeGenerator.Instance.Generate(classSymbol, dictionarySymbol);
 
-                ctx.AddSource($"{classSymbol.Name}.g.cs", sourceCode);
-                ctx.ReportDiagnostic(Diagnostic.Create(
-                    new DiagnosticDescriptor("GEN001", "Found Dictionary", $"Class {classSymbol.Name} references ResourceDictionary: {dictName}", "Generator", DiagnosticSeverity.Info, true),
-                    classSymbol.Locations.FirstOrDefault()));
+                    ctx.AddSource($"{classSymbol.Name}.g.cs", sourceCode);
+                    ctx.ReportDiagnostic(Diagnostic.Create(
+                        new DiagnosticDescriptor("GEN001", "Found Dictionary", $"Class {classSymbol.Name} references ResourceDictionary: {dictName}", "Generator", DiagnosticSeverity.Info, true),
+                        classSymbol.Locations.FirstOrDefault()));
+                }
+                catch (Exception e)
+                {
+                    ctx.ReportDiagnostic(Diagnostic.Create(
+                        new DiagnosticDescriptor("GEN001", "Error generating type", $"Target class {classSymbol.Name} : {e}", "Generator", DiagnosticSeverity.Error, true),
+                        classSymbol.Locations.FirstOrDefault()));
+                }
             }
         });
     }
