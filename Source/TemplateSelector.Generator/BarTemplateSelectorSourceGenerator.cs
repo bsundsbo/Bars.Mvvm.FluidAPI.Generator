@@ -48,11 +48,8 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
                             : (classSymbol, dictType);
 
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        // ctx.ReportDiagnostic(Diagnostic.Create(
-                        //     new DiagnosticDescriptor("GEN001", "Error generating type", $"Target class {classSymbol.Name} : {e}", "Generator", DiagnosticSeverity.Error, true),
-                        //     classSymbol.Locations.FirstOrDefault()));
                         return default((INamedTypeSymbol, INamedTypeSymbol));
                     }
                 })

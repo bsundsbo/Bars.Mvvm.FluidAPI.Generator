@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.ruleset = .ruleset
 		Directory.Packages.props = Directory.Packages.props
 		NuGet.Config = NuGet.Config
+		..\GitVersion.yaml = ..\GitVersion.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Common", "FluidApi.Common\FluidApi.Common.csproj", "{09776564-1CA1-4AC2-8036-1FC36FE9CBC7}"
@@ -37,12 +38,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debug", "Debug", "{9BBF685A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateSelector.Wpf.Console", "TemplateSelector.Wpf.Console\TemplateSelector.Wpf.Console.csproj", "{58D48DB1-EDD8-4372-81B5-2B87A5CD35E3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "..\build\Build.csproj", "{2FA80F65-0EE2-4A79-9C4E-7706E774CD36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{BC614007-5140-4E86-99A7-0BA751A87176}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\buiild-and-publish.yaml = ..\.github\workflows\buiild-and-publish.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FA80F65-0EE2-4A79-9C4E-7706E774CD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA80F65-0EE2-4A79-9C4E-7706E774CD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EA971C1-8D25-495F-AB43-D51981459D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,5 +102,6 @@ Global
 		{94DDD2DE-D0D8-49B5-97ED-8405F790429B} = {115177F1-0D7E-4995-91AA-C8EFCC491FD8}
 		{9664269B-E9AB-4D09-9FE7-84C6D81F681E} = {9BBF685A-19EE-4B77-BF2A-F8AB3A9A4CA7}
 		{58D48DB1-EDD8-4372-81B5-2B87A5CD35E3} = {9BBF685A-19EE-4B77-BF2A-F8AB3A9A4CA7}
+		{BC614007-5140-4E86-99A7-0BA751A87176} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
 	EndGlobalSection
 EndGlobal

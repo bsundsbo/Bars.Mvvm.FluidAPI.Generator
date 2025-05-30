@@ -7,7 +7,7 @@ namespace TemplateSelector.Wpf.Console;
 /// <summary>
 /// some doc to be filled in later.
 /// </summary>
-[BarTemplateSelector(typeof(ConsoleDataTemplateSelectorResourceDictionary))]
+[BarTemplateSelector(typeof(ConsoleControlTemplateSelectorResourceDictionary))]
 public partial class ConsoleControlTemplateSelector : BarControlTemplateSelector
 {
     public ItemContainerTemplate BlueButtonTemplate { get; set; }
