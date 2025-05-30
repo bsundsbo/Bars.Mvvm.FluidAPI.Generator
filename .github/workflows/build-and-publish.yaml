@@ -1,0 +1,41 @@
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+      - develop
+      - features/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # <-- Ensures GitVersion can see tags and all history
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.x' # Adjust to match your project's .NET version
+
+      - name: Install NUKE Global Tool
+        run: dotnet tool install --global Nuke.GlobalTool
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Run NUKE Target
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            nuke Publish
+          else
+            nuke Pack
+          fi

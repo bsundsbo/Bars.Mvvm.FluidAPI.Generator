@@ -2,13 +2,13 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Bars.Mvvm.TemplateSelector.Console;
+namespace TemplateSelector.Wpf.Console;
 
 /// <summary>
-/// some doc to be filled in later
+/// some doc to be filled in later.
 /// </summary>
-[BarTemplateSelector(typeof(CustomDataTemplateSelectorResourceDictionary))]
-public partial class CustomControlTemplateSelector : BarControlTemplateSelector
+[BarTemplateSelector(typeof(ConsoleControlTemplateSelectorResourceDictionary))]
+public partial class ConsoleControlTemplateSelector : BarControlTemplateSelector
 {
     public ItemContainerTemplate BlueButtonTemplate { get; set; }
 

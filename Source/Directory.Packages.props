@@ -1,12 +1,13 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <ActiproWpfVersion>25.1.0</ActiproWpfVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageVersion Include="ActiproSoftware.Controls.WPF" Version="25.1.0"/>
-        <PackageVersion Include="ActiproSoftware.Controls.WPF.Bars" Version="25.1.0"/>
-        <PackageVersion Include="ActiproSoftware.Controls.WPF.Bars.Mvvm" Version="25.1.0"/>
-        <PackageVersion Include="ActiproSoftware.Controls.WPF.Shared" Version="25.1.0"/>
+        <PackageVersion Include="ActiproSoftware.Controls.WPF" Version="$(ActiproWpfVersion)"/>
+        <PackageVersion Include="ActiproSoftware.Controls.WPF.Bars" Version="$(ActiproWpfVersion)"/>
+        <PackageVersion Include="ActiproSoftware.Controls.WPF.Bars.Mvvm" Version="$(ActiproWpfVersion)"/>
+        <PackageVersion Include="ActiproSoftware.Controls.WPF.Shared" Version="$(ActiproWpfVersion)"/>
         <PackageVersion Include="ActiproSoftware.Controls.Avalonia.Bars.Mvvm" Version="25.1.0"/>
         <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556"/>
         <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.10.0.116381" />
