@@ -34,8 +34,8 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          if ($env:GITHUB_REF -eq 'refs/heads/main') {
             nuke Publish
-          else
+          } else {
             nuke Pack
-          fi
+          }
