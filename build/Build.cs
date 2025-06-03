@@ -21,7 +21,7 @@ public partial class Build : NukeBuild
     [Solution(GenerateProjects = true)]
     readonly Solution Solution;
 
-    [GitVersion(NoFetch = true)]
+    [GitVersion]
     readonly GitVersion GitVersion;
 
     AbsolutePath OutputDirectory => RootDirectory / "output";
@@ -69,7 +69,8 @@ public partial class Build : NukeBuild
                     .SetProjectFile(project)
                     .SetConfiguration(Configuration)
                     .EnableNoBuild()
-                    .EnableNoRestore());
+                    .EnableNoRestore()
+                );
             }
         });
 

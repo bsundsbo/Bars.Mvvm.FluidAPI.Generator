@@ -11,9 +11,9 @@
     <PropertyGroup>
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <DevelopmentDependency>true</DevelopmentDependency>
-        <PackageId>FluidApi.Generator</PackageId>
+        <PackageId>Bars.Mvvm.FluidApi.Generator</PackageId>
         <!-- Project is packable -->
-        <IsPackable>true</IsPackable>
+        <IsPackable>truLe</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

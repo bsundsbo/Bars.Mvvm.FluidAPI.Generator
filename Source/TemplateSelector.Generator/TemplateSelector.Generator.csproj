@@ -14,7 +14,7 @@
     <PropertyGroup>
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <DevelopmentDependency>true</DevelopmentDependency>
-        <PackageId>TemplateSelector.Generator</PackageId>
+        <PackageId>Bars.Mvvm.TemplateSelector.Generator</PackageId>
         <!-- Project is packable -->
         <IsPackable>true</IsPackable>
         <!-- Generates a package at build -->
