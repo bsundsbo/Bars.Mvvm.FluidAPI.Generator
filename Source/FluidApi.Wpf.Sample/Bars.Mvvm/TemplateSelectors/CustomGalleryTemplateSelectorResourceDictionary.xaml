@@ -1,7 +1,7 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary x:Class="Bars.Mvvm.FluidGenerator.Sample.CustomGalleryTemplateSelectorResourceDictionary"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:sample="clr-namespace:Bars.Mvvm.FluidGenerator.Sample"
-                    x:Class="Bars.Mvvm.FluidGenerator.Sample.CustomGalleryTemplateSelectorResourceDictionary">
+                    xmlns:sample="clr-namespace:Bars.Mvvm.FluidGenerator.Sample">
 <!--
     x:Class is required to wire up the code-behind file for this resource dictionary.
     The resource dictionary resource key is set to "CustomGalleryTemplateSelectorResourceKeys"

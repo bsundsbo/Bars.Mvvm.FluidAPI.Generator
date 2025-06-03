@@ -22,14 +22,9 @@ public partial class CustomGalleryTemplateSelector : BarGalleryItemTemplateSelec
     public override DataTemplate? SelectTemplate(object? item, DependencyObject container)
     {
         bool isMenuItem = PrefersMenuItemAppearance(item, container);
-        if (isMenuItem && item is ReferenceCodeGalleryItemViewModel)
-        {
-            return ReferenceCodeMenuItemTemplate;
-        }
-
         if (item is ReferenceCodeGalleryItemViewModel)
         {
-            return ReferenceCodeTemplate;
+            return isMenuItem ? ReferenceCodeMenuItemTemplate : ReferenceCodeTemplate;
         }
 
         return base.SelectTemplate(item, container);

@@ -8,5 +8,8 @@ namespace Bars.Mvvm.FluidGenerator.Sample;
 /// <param name="referenceCode"></param>
 public class ReferenceCodeGalleryItemViewModel(ReferenceCode referenceCode) : BarGalleryItemViewModel<ReferenceCode>(referenceCode)
 {
-
+    protected override string CoerceLabel()
+    {
+        return Value.Name;
+    }
 }
