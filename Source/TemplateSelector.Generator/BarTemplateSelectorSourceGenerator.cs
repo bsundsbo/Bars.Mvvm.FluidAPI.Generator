@@ -8,7 +8,7 @@ using System.Collections.Immutable;
 namespace Bars.Mvvm.Resource.Generator;
 
 /// <summary>
-/// Source generator for generating Fluid extensions for ActiproSoftware's Bars MVVM framework.
+/// Source generator for generating ResourceKeys and mapping them to the DataTemplateSelector for less fuzz when creating new templates.
 /// </summary>
 [Generator(LanguageNames.CSharp)]
 public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
@@ -42,6 +42,8 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
                             return default;
                         }
 
+                        // TODO: validate and offer error diagnostics if the type is not a dictionary, is not partial
+                        // TODO: extend to provide the ResourceKeys class generation
                         var arg = attr.ConstructorArguments[0];
                         return arg.Value is not INamedTypeSymbol dictType
                             ? default((INamedTypeSymbol, INamedTypeSymbol))
