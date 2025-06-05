@@ -13,7 +13,7 @@
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageId>Bars.Mvvm.FluidApi.Generator</PackageId>
         <!-- Project is packable -->
-        <IsPackable>truLe</IsPackable>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
