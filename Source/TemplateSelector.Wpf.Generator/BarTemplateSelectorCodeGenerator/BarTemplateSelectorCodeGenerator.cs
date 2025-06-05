@@ -9,6 +9,10 @@ using System.Collections.Immutable;
 
 namespace Bars.Mvvm.Resource.Generator;
 
+/// <summary>
+/// This class generates code based on attribute BarTemplateSelectorAttribute
+/// to generate ResourceDictionary, ResourceKeys and map these within the ResourceDictionary.
+/// </summary>
 internal class BarTemplateSelectorCodeGenerator
 {
     public static BarTemplateSelectorCodeGenerator Instance { get; } = new();

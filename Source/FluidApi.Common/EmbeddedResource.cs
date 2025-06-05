@@ -10,6 +10,13 @@ namespace Bars.Mvvm.FluidApi.Common;
 /// </summary>
 public static class EmbeddedResource
 {
+    /// <summary>
+    /// Get the content of an embedded resource as a string, using the relative path to the resource.
+    /// The files must be marked as "Embedded Resource" in the project properties.
+    /// </summary>
+    /// <param name="relativePath"></param>
+    /// <returns></returns>
+    /// <exception cref="InvalidOperationException"></exception>
     public static string GetContent(string relativePath)
     {
         var baseName = Assembly.GetExecutingAssembly().GetName().Name;

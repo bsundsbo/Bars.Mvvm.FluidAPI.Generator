@@ -19,9 +19,7 @@
         <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" 
                           OutputItemType="Analyzer" 
                           ReferenceOutputAssembly="false" />
-        <ProjectReference Include="..\TemplateSelector.Generator\TemplateSelector.Generator.csproj"
-                          OutputItemType="Analyzer" 
-                          ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\TemplateSelector.Wpf.Generator\TemplateSelector.Wpf.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>

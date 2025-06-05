@@ -3,6 +3,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sample="clr-namespace:Bars.Mvvm.FluidGenerator.Sample"
                     xmlns:bars="http://schemas.actiprosoftware.com/winfx/xaml/bars">
+
+    <!-- x:Class is required to wire up the code-behind file for this resource dictionary.
+         The resource dictionary resource key is set to "CustomDataTemplateSelectorResourceKeys"
+         is auto-generated so it can be referenced in this file to declare the appearance of the various
+         templates declared in CustomDataTemplateSelector. -->
     <ItemContainerTemplate x:Key="{x:Static sample:CustomDataTemplateSelectorResourceKeys.BlueButtonTemplate}"
                            DataType="sample:BlueBarButtonViewModel">
         <ItemContainerTemplate.Resources>

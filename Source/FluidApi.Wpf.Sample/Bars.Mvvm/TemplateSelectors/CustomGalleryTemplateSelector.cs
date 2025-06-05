@@ -16,7 +16,14 @@ namespace Bars.Mvvm.FluidGenerator.Sample;
 [BarTemplateSelector(typeof(CustomGalleryTemplateSelectorResourceDictionary))]
 public partial class CustomGalleryTemplateSelector : BarGalleryItemTemplateSelector
 {
+    /// <summary>
+    /// Template for a reference code gallery item.
+    /// </summary>
     public DataTemplate ReferenceCodeTemplate { get; set; }
+
+    /// <summary>
+    /// Template for a reference code gallery item when displayed as a menu item.
+    /// </summary>
     public DataTemplate ReferenceCodeMenuItemTemplate { get; set; }
 
     public override DataTemplate? SelectTemplate(object? item, DependencyObject container)
