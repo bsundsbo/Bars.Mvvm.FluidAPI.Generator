@@ -105,6 +105,17 @@ public static class TestHelperExtensions
         return parameter.IsOptional && (parameter.ParameterType == typeof(T)
                                         || Nullable.GetUnderlyingType(parameter.ParameterType) == typeof(T));
     }
+
+    /// <summary>
+    /// Determines if the given type implements the given interface.
+    /// </summary>
+    /// <param name="type">The type to check</param>
+    /// <param name="interfaceType">The interface type to look for</param>
+    /// <returns>Returns <c>true</c> if the type implements the interface; <c>false</c>, otherwise</returns>
+    public static bool Implements(
+        this Type type,
+        Type interfaceType) =>
+        type.GetInterfaces().Contains(interfaceType);
 }
 
 

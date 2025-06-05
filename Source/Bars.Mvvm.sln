@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{32D7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{115177F1-0D7E-4995-91AA-C8EFCC491FD8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Generator.Wpf.Test", "FluidApi.Generator.Wpf.Test\FluidApi.Generator.Wpf.Test.csproj", "{94DDD2DE-D0D8-49B5-97ED-8405F790429B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Generator.Wpf.Tests", "FluidApi.Generator.Wpf.Tests\FluidApi.Generator.Wpf.Tests.csproj", "{94DDD2DE-D0D8-49B5-97ED-8405F790429B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluidApi.Wpf", "FluidApi.Wpf\FluidApi.Wpf.csproj", "{38569010-DEEE-49FC-8A01-21239A2EFAE4}"
 EndProject
@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "..\build\Build.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{BC614007-5140-4E86-99A7-0BA751A87176}"
 	ProjectSection(SolutionItems) = preProject
-		..\.github\workflows\buiild-and-publish.yaml = ..\.github\workflows\buiild-and-publish.yaml
+		..\.github\workflows\build-and-publish.yaml = ..\.github\workflows\build-and-publish.yaml
 	EndProjectSection
 EndProject
 Global

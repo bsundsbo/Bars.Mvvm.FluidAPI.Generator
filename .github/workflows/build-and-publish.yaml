@@ -27,15 +27,18 @@ jobs:
       - name: Install NUKE Global Tool
         run: dotnet tool install --global Nuke.GlobalTool
 
+      - name: Install GitVersion Global Tool
+        run: nuke :add-package GitVersion.Tool --version 6.3.0
+
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore .\Source\Bars.Mvvm.sln
 
       - name: Run NUKE Target
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+          if ($env:GITHUB_REF -eq 'refs/heads/main') {
             nuke Publish
-          else
+          } else {
             nuke Pack
-          fi
+          }

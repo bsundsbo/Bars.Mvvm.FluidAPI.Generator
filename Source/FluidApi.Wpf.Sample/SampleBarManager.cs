@@ -44,6 +44,24 @@ public class SampleBarManager
         ControlViewModels.Register(SampleControlKeys.Cut, key => new RedBarButtonViewModel(key)
             .WithDescription($"This red button is read from {nameof(CustomDataTemplateSelector)}")
             .WithCommand(_notImplementedCommand, "I am a great red button read from template!"));
+        ControlViewModels.Register(SampleControlKeys.ReferenceCodes, CreateReferenceCodeControl);
+    }
+
+    private static IHasKey CreateReferenceCodeControl(string key)
+    {
+        var items = new List<ReferenceCode>
+        {
+            new ("Code1", "Description for Code1"),
+            new ("Code2", "Description for Code2"),
+            new ("Code3", "Description for Code3")
+        };
+
+        var galleryItems = items.Select(item => new ReferenceCodeGalleryItemViewModel(item))
+            .ToList();
+        return new BarComboBoxViewModel(key, galleryItems)
+            .WithLabel("Reference Codes")
+            .WithDescription("This is a combo box with a custom template selector.")
+            .WithItemTemplateSelector(new CustomGalleryTemplateSelector());
     }
 
     private void RegisterImages()
@@ -66,6 +84,7 @@ public class SampleBarManager
                 .WithDescription("Tab description")
                 .WithGroup(new RibbonGroupViewModel("Edit group")
                     .WithItem(ControlViewModels[SampleControlKeys.Copy])
-                    .WithItem(ControlViewModels[SampleControlKeys.Cut])));
+                    .WithItem(ControlViewModels[SampleControlKeys.Cut])
+                    .WithItem(ControlViewModels[SampleControlKeys.ReferenceCodes])));
     }
 }
