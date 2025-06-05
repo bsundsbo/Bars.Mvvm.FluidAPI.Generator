@@ -42,8 +42,8 @@ public class BarTemplateSelectorSourceGenerator : IIncrementalGenerator
                             return default;
                         }
 
-                        // TODO: validate and offer error diagnostics if the type is not a dictionary, is not partial
-                        // TODO: extend to provide the ResourceKeys class generation
+                        // NOTE: validate and offer error diagnostics if the type is not a dictionary, is not partial
+                        // NOTE: extend to provide the ResourceKeys class generation
                         var arg = attr.ConstructorArguments[0];
                         return arg.Value is not INamedTypeSymbol dictType
                             ? default((INamedTypeSymbol, INamedTypeSymbol))

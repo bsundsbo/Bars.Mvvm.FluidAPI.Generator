@@ -70,6 +70,8 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
             return;
         }
 
+        // NOTE: while we support both WPF and Avalonia in reference lookup, but currently proper generation
+        // is only implemented for WPF. Avalonia support will be added in future iterations if the project is a success.
         var generator = new FluidExtensionCodeGenerator();
         foreach (var classSymbol in classes)
         {

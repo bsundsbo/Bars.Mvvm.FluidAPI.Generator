@@ -16,5 +16,8 @@ public record CommandWithParameterTemplateModel : PropertyTemplateModel
         ParameterPropertyName = commandParameterProperty.Name;
     }
 
+    /// <summary>
+    /// Property name of the command parameter that will be assigned in the extension method.
+    /// </summary>
     public string? ParameterPropertyName { get; init; }
 }

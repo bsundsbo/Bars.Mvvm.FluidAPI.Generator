@@ -23,6 +23,7 @@ public static class MetadataReferenceExtensions
     /// <returns><c>true</c> if the assembly should be included; <c>false</c> otherwise.</returns>
     public static bool IsActiproAssembly(this MetadataReference reference)
     {
+        // We are currently filtering WPF and Avalonia assemblies
         return reference.GetModules().Any(m => m.Name is _actiproMvvmWpfAssembly or _actiproMvvmAvaloniaAssembly);
     }
 
@@ -41,6 +42,11 @@ public static class MetadataReferenceExtensions
         return GetAllTypesFromMetadataImageReference(metadataReference);
     }
 
+    /// <summary>
+    /// Get the modules within the metadata reference.
+    /// </summary>
+    /// <param name="metadataReference"></param>
+    /// <returns></returns>
     private static IEnumerable<ModuleInfo> GetModules(this MetadataReference metadataReference)
     {
         return metadataReference switch

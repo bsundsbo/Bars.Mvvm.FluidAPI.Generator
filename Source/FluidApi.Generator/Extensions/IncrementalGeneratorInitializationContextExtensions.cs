@@ -16,7 +16,7 @@ public static class IncrementalGeneratorInitializationContextExtensions
     /// <param name="context"></param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
-    public static IncrementalValuesProvider<MetadataReference> GetMetadataReferencesProvider(this IncrementalGeneratorInitializationContext context)
+    private static IncrementalValuesProvider<MetadataReference> GetMetadataReferencesProvider(this IncrementalGeneratorInitializationContext context)
     {
         var metadataProviderProperty = context.GetType().GetProperty(nameof(context.MetadataReferencesProvider))
                                        ?? throw new ArgumentException($"The property '{nameof(context.MetadataReferencesProvider)}' not found");

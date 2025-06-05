@@ -4,8 +4,16 @@ using System.Linq;
 
 namespace Bars.Mvvm.FluidApi.Common;
 
+/// <summary>
+/// EquitableList is a custom list that implements IEquatable to allow for value-based equality checks..
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public sealed class EquatableList<T> : List<T>, IEquatable<EquatableList<T>>
 {
+    // This class may not be truly necessary as of now, as we are not using it for caching IncrementalGenerator results
+    // But I am keeping it here for future use, as it can be useful for comparing lists of items in a value-based manner,
+    // to boost performance when extending with new kinds of generators based on SyntaxNodes.
+
     public bool Equals(EquatableList<T>? other)
     {
         // If the other list is null or a different size, they're not equal

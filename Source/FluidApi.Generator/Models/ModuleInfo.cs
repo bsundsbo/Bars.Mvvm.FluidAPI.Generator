@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 
 namespace Bars.Mvvm.FluidApi.Generator;
@@ -7,4 +8,4 @@ namespace Bars.Mvvm.FluidApi.Generator;
 /// </summary>
 /// <param name="Name"></param>
 /// <param name="Version"></param>
-public record ModuleInfo(string Name, Version Version);
+public record ModuleInfo(string Name, [UsedImplicitly(Reason = "Use for debugging")] Version Version);
