@@ -9,8 +9,9 @@ namespace Bars.Mvvm.FluidApi.Generator;
 /// <summary>
 /// Helper class for processing properties to generate code for.
 /// </summary>
-internal static class FluidExtensionPropertyParser
+internal class FluidExtensionPropertyParser(TargetLibrary targetLibrary)
 {
+    public TargetLibrary TargetLibrary { get; } = targetLibrary;
     private const string _commandParameterSuffix = "CommandParameter";
     private const string _commandSuffix = "Command";
     private const string _observableCollectionTypeName = "ObservableCollection";
@@ -21,14 +22,19 @@ internal static class FluidExtensionPropertyParser
     /// </summary>
     /// <param name="classSymbol"></param>
     /// <returns></returns>
-    public static List<PropertyTemplateModel> GetPropertyTemplateModels(INamedTypeSymbol classSymbol)
+    public List<IExtensionTemplateModel> GetPropertyTemplateModels(INamedTypeSymbol? classSymbol)
     {
+        if (classSymbol == null)
+        {
+            return [];
+        }
+
         var properties = GetPublicProperties(classSymbol);
 
         List<IPropertySymbol> commandParameterProperties = [];
         commandParameterProperties.AddRange(properties.FindAll(p => p.Name.EndsWith(_commandParameterSuffix)));
 
-        var propertyModels = new List<PropertyTemplateModel>();
+        var propertyModels = new List<IExtensionTemplateModel>();
         foreach (var property in properties)
         {
             var propertyModel = GetPropertyModel(classSymbol, property, commandParameterProperties);
@@ -36,6 +42,13 @@ internal static class FluidExtensionPropertyParser
             {
                 propertyModels.Add(propertyModel);
             }
+        }
+
+        if (TargetLibrary == TargetLibrary.Wpf
+            && classSymbol.AllInterfaces.Any(i => i.Name == "IHasVariantImages"))
+        {
+            var model = new HasVariantImageTemplateModel(classSymbol.Name);
+            propertyModels.Add(model);
         }
 
         return propertyModels.Distinct().ToList();
@@ -80,7 +93,7 @@ internal static class FluidExtensionPropertyParser
                 : new PropertyTemplateModel(classSymbol, property);
         }
 
-        if (property.IsReadOnly && property.IsObservableCollection(out ITypeSymbol? elementType))
+        if (property.IsReadOnly && IsObservableCollection(property, out ITypeSymbol? elementType))
         {
             return new ObservableCollectionTemplateModel(classSymbol, property, elementType);
         }
@@ -88,7 +101,7 @@ internal static class FluidExtensionPropertyParser
         return null;
     }
 
-    private static bool IsObservableCollection(this IPropertySymbol? propertySymbol, out ITypeSymbol? typeArgument)
+    private static bool IsObservableCollection(IPropertySymbol? propertySymbol, out ITypeSymbol? typeArgument)
     {
         var typeSymbol = propertySymbol?.Type as INamedTypeSymbol;
         if (typeSymbol?.Name == _observableCollectionTypeName

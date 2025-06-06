@@ -19,7 +19,8 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should()
@@ -38,12 +39,13 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
-        result.Should().HaveCount(1);
-        result[0].Should().BeOfType<PropertyTemplateModel>();
-        result[0].PropertyName.Should().Be("TestCommand");
+
+        result.Should().HaveCount(1)
+            .And.Subject.First().As<PropertyTemplateModel>().PropertyName.Should().Be("TestCommand");
     }
 
     [Fact]
@@ -59,7 +61,8 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should().HaveCount(2);
@@ -70,8 +73,8 @@ public class FluidExtensionPropertyParserShould
         commandWithParameter.ParameterPropertyName.Should().Be("TestCommandParameter");
         var commandParameterProperty = result.Except([commandWithParameter])
             .Single();
-        commandParameterProperty.Should().NotBeNull();
-        commandParameterProperty.PropertyName.Should().Be("TestCommandParameter");
+        commandParameterProperty.Should().NotBeNull()
+            .And.Subject.As<PropertyTemplateModel>().PropertyName.Should().Be("TestCommandParameter");
     }
 
     [Fact]
@@ -85,12 +88,13 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should().HaveCount(1);
-        result[0].Should().BeOfType<BooleanPropertyTemplateModel>();
-        result[0].PropertyName.Should().Be("IsEnabled");
+        result[0].Should().BeOfType<BooleanPropertyTemplateModel>()
+            .And.Subject.As<BooleanPropertyTemplateModel>().PropertyName.Should().Be("IsEnabled");
     }
 
     [Fact]
@@ -104,12 +108,13 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should().HaveCount(1);
-        result[0].Should().BeOfType<BooleanPropertyTemplateModel>();
-        result[0].PropertyName.Should().Be("IsEnabled");
+        result[0].Should().BeOfType<BooleanPropertyTemplateModel>()
+            .And.Subject.As<BooleanPropertyTemplateModel>().PropertyName.Should().Be("IsEnabled");
     }
 
     [Fact]
@@ -126,12 +131,13 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyNamespace.MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should().HaveCount(1);
-        result[0].Should().BeOfType<ObservableCollectionTemplateModel>();
-        result[0].PropertyName.Should().Be("Items");
+        result[0].Should().BeOfType<ObservableCollectionTemplateModel>()
+            .And.Subject.As<ObservableCollectionTemplateModel>().PropertyName.Should().Be("Items");
     }
 
     [Fact]
@@ -149,12 +155,13 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var result = FluidExtensionPropertyParser.GetPropertyTemplateModels(classSymbol!);
+        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
         result.Should().HaveCount(3);
-        result.Should().ContainSingle(p => p is BooleanPropertyTemplateModel && p.PropertyName == "IsEnabled");
-        result.Should().ContainSingle(p => p != null && p.PropertyName == "TestCommand");
-        result.Should().ContainSingle(p => p is ObservableCollectionTemplateModel && p.PropertyName == "Items");
+        result.OfType<BooleanPropertyTemplateModel>().Should().ContainSingle(p => p.PropertyName == "IsEnabled");
+        result.OfType<PropertyTemplateModel>().Should().ContainSingle(p => p.PropertyName == "TestCommand");
+        result.OfType<ObservableCollectionTemplateModel>().Should().ContainSingle(p => p.PropertyName == "Items");
     }
 }
