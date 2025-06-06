@@ -43,7 +43,7 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
                                   && cls.DerivesFromObservableObjectBase())
                     .ToList();
                 var generatedFor = types.FirstOrDefault(m => m.ContainingNamespace.ToDisplayString() == ActiproTypeExtensions.AvaloniaNamespace) != null
-                    ? GeneratedType.Avalonia : GeneratedType.Wpf;
+                    ? TargetLibrary.Avalonia : TargetLibrary.Wpf;
                 GenerateForClasses(ctx, types, generatedFor);
             }
             catch (Exception e)
@@ -63,14 +63,15 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
         }
     }
 
-    private static void GenerateForClasses(SourceProductionContext context, IList<INamedTypeSymbol> classes, GeneratedType generatedFor)
+    private static void GenerateForClasses(SourceProductionContext context, IList<INamedTypeSymbol> classes, TargetLibrary generatedFor)
     {
         if(classes.Count == 0)
         {
             return;
         }
 
-        var generator = new FluidExtensionCodeGenerator();
+        var parser = new FluidExtensionPropertyParser(generatedFor);
+        var generator = new FluidExtensionCodeGenerator(parser);
         foreach (var classSymbol in classes)
         {
             try
@@ -80,7 +81,7 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
                     return;
                 }
 
-                var code = generator.Generate(classSymbol, generatedFor);
+                var code = generator.Generate(classSymbol);
                 if (!string.IsNullOrWhiteSpace(code))
                 {
                     context.AddSource($"{classSymbol.Name}.FluidExtensions.g.cs", code);
@@ -104,7 +105,7 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
     }
 }
 
-public enum GeneratedType
+public enum TargetLibrary
 {
     Avalonia,
     Wpf

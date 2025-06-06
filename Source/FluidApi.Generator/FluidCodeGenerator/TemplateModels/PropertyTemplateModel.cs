@@ -5,7 +5,7 @@ namespace Bars.Mvvm.FluidGenerator.Models;
 /// <summary>
 /// Base model for specific property template models. All these properties are used in various templates when generating code.
 /// </summary>
-public record PropertyTemplateModel
+public record PropertyTemplateModel : IExtensionTemplateModel
 {
     public PropertyTemplateModel(INamedTypeSymbol classSymbol, IPropertySymbol propertySymbol)
     {
