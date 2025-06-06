@@ -26,7 +26,7 @@ internal class FluidExtensionCodeGenerator(FluidExtensionPropertyParser parser)
     private static int _counter;
     private readonly TemplateMapper _templateMapper = new();
 
-    private readonly Dictionary<TargetLibrary, Dictionary<string, string>> _customTemplates = new()
+    private readonly Dictionary<TargetLibrary, Dictionary<string, string>> _convenienceExtensionMethodTemplates = new()
     {
         // Holds manually defined extension methods for specific ViewModels
         {
@@ -102,9 +102,8 @@ internal class FluidExtensionCodeGenerator(FluidExtensionPropertyParser parser)
 
     private void AppendCustomExtensions(string className, StringBuilder sourceBuilder)
     {
-
         // Custom templates for specific generated types
-        if (!_customTemplates.TryGetValue(parser.TargetLibrary, out var customTemplateDictionary))
+        if (!_convenienceExtensionMethodTemplates.TryGetValue(parser.TargetLibrary, out var customTemplateDictionary))
         {
             return;
         }
