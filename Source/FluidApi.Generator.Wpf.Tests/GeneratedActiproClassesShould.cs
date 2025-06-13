@@ -12,13 +12,12 @@ namespace Bars.Mvvm.FluidApi.Generator.Wpf.Test;
 public class GeneratedActiproClassesShould
 {
     private readonly List<Type> _generatedTypes;
-    private readonly Type _soureType;
     private readonly List<Type> _sourceTypes;
 
     public GeneratedActiproClassesShould()
     {
-        _soureType = typeof(BarButtonViewModel);
-        _sourceTypes = GetSourceTypes(_soureType);
+        Type sourceType = typeof(BarButtonViewModel);
+        _sourceTypes = GetSourceTypes(sourceType);
         _generatedTypes = this.GetType()
             .GetExtensionClassesFromTypeAssembly(ActiproTypeExtensions.WpfNamespace);
     }
