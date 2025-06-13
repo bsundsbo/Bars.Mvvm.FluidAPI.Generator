@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <RootNamespace>ClassLibrary1</RootNamespace>
         <LangVersion>latest</LangVersion>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
     <PropertyGroup>
         <PackageScribanIncludeSource>false</PackageScribanIncludeSource>

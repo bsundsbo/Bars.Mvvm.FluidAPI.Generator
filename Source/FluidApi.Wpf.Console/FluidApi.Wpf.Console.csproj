@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <UseWpf>true</UseWpf>
+        <IsPackable>false</IsPackable>
         <RootNamespace>Bars.Mvvm.FluidGenerator.Console</RootNamespace>
     </PropertyGroup>
 

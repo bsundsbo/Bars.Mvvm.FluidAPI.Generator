@@ -16,7 +16,7 @@
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageId>Bars.Mvvm.TemplateSelector.Generator</PackageId>
         <!-- Project is packable -->
-        <IsPackable>true</IsPackable>
+        <IsPackable>false</IsPackable>
         <!-- Generates a package at build -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <!-- Do not include the generator as a lib dependency -->

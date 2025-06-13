@@ -1,5 +1,6 @@
 mode: ContinuousDeployment
 next-version: 0.1.0
+nuget-versioning-mode: ContinuousDeployment
 branches:
   main:
     regex: ^main$
@@ -17,10 +18,8 @@ branches:
   release:
     regex: ^release[/-]
     increment: patch
-    is-pre-release: true
   feature:
     regex: ^features?[/-]
     increment: minor
-    is-pre-release: true
     source-branches:
       - develop
