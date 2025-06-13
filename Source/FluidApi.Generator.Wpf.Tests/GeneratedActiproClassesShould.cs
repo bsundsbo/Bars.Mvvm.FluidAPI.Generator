@@ -3,7 +3,6 @@ using Bars.Mvvm.FluidApi.Common;
 using FluentAssertions;
 using System.Reflection;
 using Xunit;
-using Xunit.Sdk;
 
 namespace Bars.Mvvm.FluidApi.Generator.Wpf.Test;
 
@@ -12,14 +11,23 @@ namespace Bars.Mvvm.FluidApi.Generator.Wpf.Test;
 /// </summary>
 public class GeneratedActiproClassesShould
 {
-    [Theory]
-    [InlineData(typeof(BarButtonViewModel), ActiproTypeExtensions.WpfNamespace)]
-    public void Have_Extension_Class_For_Each_Source_Type(Type sourceType, string sourceNamespace)
+    private readonly List<Type> _generatedTypes;
+    private readonly Type _soureType;
+    private readonly List<Type> _sourceTypes;
+
+    public GeneratedActiproClassesShould()
     {
-        var generatedTypes = this.GetType()
-            .GetExtensionClassesFromTypeAssembly(sourceNamespace);
-        var missingTypes = GetSourceTypes(sourceType)
-            .Where(st => !generatedTypes.Exists(generatedType => generatedType.Name == $"{st.Name}Extensions"))
+        _soureType = typeof(BarButtonViewModel);
+        _sourceTypes = GetSourceTypes(_soureType);
+        _generatedTypes = this.GetType()
+            .GetExtensionClassesFromTypeAssembly(ActiproTypeExtensions.WpfNamespace);
+    }
+
+    [Fact]
+    public void Have_Extension_Class_For_Each_Source_Type()
+    {
+        var missingTypes = _sourceTypes
+            .Where(st => !_generatedTypes.Exists(generatedType => generatedType.Name == $"{st.Name}Extensions"))
             .ToList();
 
         if (missingTypes.Count > 0)
@@ -28,16 +36,13 @@ public class GeneratedActiproClassesShould
         }
     }
 
-    [Theory]
-    [InlineData(typeof(BarButtonViewModel), ActiproTypeExtensions.WpfNamespace)]
-    public void Have_All_ReadWrite_Properties(Type sourceViewModel, string sourceNamespace)
+    [Fact]
+    public void Have_All_ReadWrite_Properties()
     {
-        var generatedTypes = this.GetType()
-            .GetExtensionClassesFromTypeAssembly(sourceNamespace);
         var validationResults = new ValidationResult("Classes with missing read/write properties");
-        foreach (var sourceType in GetSourceTypes(sourceViewModel))
+        foreach (var sourceType in _sourceTypes)
         {
-            var generatedMethods = generatedTypes.GetGeneratedMethodsForType(sourceType);
+            var generatedMethods = _generatedTypes.GetGeneratedMethodsForType(sourceType);
             if (generatedMethods.Count == 0)
             {
                 // Skip as missing generated classes are tested in another test
@@ -56,7 +61,7 @@ public class GeneratedActiproClassesShould
                     }
 
                     var lastParameter = method.GetParameters().LastOrDefault();
-                    if (lastParameter?.IsOptionalParameter<bool>() == false)
+                    if (lastParameter?.IsOptional<bool>() == false)
                     {
                         validationResults.AddError(sourceType.Name, sourceProperty.Name, $"{method.Name} is expected to have optional bool parameter as last parameter.");
                     }
@@ -74,14 +79,20 @@ public class GeneratedActiproClassesShould
         validationResults.HasValidationErrors.Should().BeFalse(validationResults.GetErrorMessage());
     }
 
-    [Theory]
-    [InlineData(typeof(BarButtonViewModel), ActiproTypeExtensions.WpfNamespace)]
-    public void HasVariantImages_Implements_WithImages(Type sourceViewModel, string sourceNamespace)
+    [Fact]
+    public void HasVariantImages_Implements_WithImages()
     {
-        var generatedTypes = this.GetType()
-            .GetExtensionClassesFromTypeAssembly(sourceNamespace);
         var validationResults = new ValidationResult("Classes with missing read/write properties");
-        foreach (var sourceType in from sourceType in GetSourceTypes(sourceViewModel) where sourceType.Implements(typeof(IHasVariantImages)) let generatedMethods = generatedTypes.GetGeneratedMethodsForType(sourceType) where !generatedMethods.TryGetValue("WithImages", out _) select sourceType)
+        var sourceTypes = _sourceTypes
+            .Where(sourceType => sourceType.Implements(typeof(IHasVariantImages)))
+            .Select(sourceType => new
+            {
+                sourceType,
+                generatedMethods = _generatedTypes.GetGeneratedMethodsForType(sourceType)
+            })
+            .Where(t => !t.generatedMethods.TryGetValue("WithImages", out _))
+            .Select(t => t.sourceType);
+        foreach (var sourceType in sourceTypes)
         {
             // no generated method found for this property
             validationResults.AddError(sourceType.Name, "WithImages");
@@ -91,17 +102,14 @@ public class GeneratedActiproClassesShould
         validationResults.HasValidationErrors.Should().BeFalse(validationResults.GetErrorMessage());
     }
 
-    [Theory]
-    [InlineData(typeof(BarButtonViewModel), ActiproTypeExtensions.WpfNamespace)]
-    public void Have_Singular_And_Plural_For_ObservableCollection(Type sourceViewModel, string sourceNamespace)
+    [Fact]
+    public void Have_Singular_And_Plural_For_ObservableCollection()
     {
-        var generatedTypes = this.GetType()
-            .GetExtensionClassesFromTypeAssembly(sourceNamespace);
         var validation = new ValidationResult("Classes with missing WithItem\\Items pair with proper signature");
 
-        foreach (var sourceType in GetSourceTypes(sourceViewModel))
+        foreach (var sourceType in _sourceTypes)
         {
-            var generatedMethods = generatedTypes.GetGeneratedMethodsForType(sourceType);
+            var generatedMethods = _generatedTypes.GetGeneratedMethodsForType(sourceType);
             if (generatedMethods.Count == 0)
             {
                 // Skip as missing generated classes are tested in another test

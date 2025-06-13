@@ -1,21 +1,20 @@
     /// <summary>
-    /// Sets image for <see cref="IHasVariantImages"/> looking up the images from <see cref="IBarImageProvider"/>.
+    /// Sets image for <see cref="IHasVariantImages"/> looking up the images from <see cref="IBarImageProvider"/>
+    /// using <see cref="{{ClassName}}.Key" />.
     /// </summary>
     /// <param name="target">The target to set the images on.</param>
     /// <param name="imageProvider">The image provider to get the image from.</param>
-    /// <param name="imageKey">The key to use for looking up the in the provider.</param>
     public static {{ClassName}} WithImages(
             this {{ClassName}} target,
-            IBarImageProvider imageProvider,
-            string imageKey
+            IBarImageProvider imageProvider
         )
     {
         var hasVariantImages = target as IHasVariantImages;
         if (hasVariantImages != null)
         {
-            hasVariantImages.SmallImageSource = imageProvider.GetImageSource(imageKey, BarImageSize.Small);
-            hasVariantImages.MediumImageSource = imageProvider.GetImageSource(imageKey, BarImageSize.Medium);
-            hasVariantImages.LargeImageSource = imageProvider.GetImageSource(imageKey, BarImageSize.Large);
+            hasVariantImages.SmallImageSource = imageProvider.GetImageSource(target.Key, BarImageSize.Small);
+            hasVariantImages.MediumImageSource = imageProvider.GetImageSource(target.Key, BarImageSize.Medium);
+            hasVariantImages.LargeImageSource = imageProvider.GetImageSource(target.Key, BarImageSize.Large);
         }
 
         return target;
