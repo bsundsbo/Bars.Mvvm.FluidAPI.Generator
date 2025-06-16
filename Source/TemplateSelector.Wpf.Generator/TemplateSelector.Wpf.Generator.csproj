@@ -15,19 +15,33 @@
         <NoPackageAnalysis>true</NoPackageAnalysis>
         <DevelopmentDependency>true</DevelopmentDependency>
         <PackageId>Bars.Mvvm.TemplateSelector.Generator</PackageId>
+        <Authors>Bjørnar Sundsbø</Authors>
+        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm</PackageProjectUrl>
+        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <Copyright>Bjørnar Sundsbø</Copyright>
+        <Description>Fluid Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
+        <PackageId>Bars.Mvvm.FluidApi.Generator</PackageId>
+        <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluid, Fluid API, Extensions, Convenience methods, Source Generator </PackageTags>
+
         <!-- Project is packable -->
-        <IsPackable>false</IsPackable>
+        <IsPackable>True</IsPackable>
         <!-- Generates a package at build -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <!-- Do not include the generator as a lib dependency -->
         <IncludeBuildOutput>false</IncludeBuildOutput>
     </PropertyGroup>
+
+    <ItemGroup>
+        <!-- Package the generator in the analyzer directory of the nuget package -->
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+    </ItemGroup>
+
     <ItemGroup>
         <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="BarTemplateSelectorCodeGenerator\Templates\BarTemplateSelectorAttribute.fg-cs" />
@@ -40,7 +54,7 @@
         <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Scriban" IncludeAssets="Build" />
+        <PackageReference Include="Scriban" IncludeAssets="Build" PrivateAssets="all" />
     </ItemGroup>
 
 </Project>
