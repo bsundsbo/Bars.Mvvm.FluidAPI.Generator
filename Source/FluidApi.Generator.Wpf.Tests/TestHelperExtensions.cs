@@ -100,7 +100,7 @@ public static class TestHelperExtensions
             .ToDictionary(m => m.Name, m => m);
     }
 
-    public static bool IsOptionalParameter<T>(this ParameterInfo parameter)
+    public static bool IsOptional<T>(this ParameterInfo parameter)
     {
         return parameter.IsOptional && (parameter.ParameterType == typeof(T)
                                         || Nullable.GetUnderlyingType(parameter.ParameterType) == typeof(T));
