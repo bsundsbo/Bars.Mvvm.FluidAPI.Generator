@@ -24,8 +24,11 @@ jobs:
         with:
           dotnet-version: '9.x' # Adjust to match your project's .NET version
 
+      - name: Install NUKE Global Tool
+        run: dotnet tool install --global Nuke.GlobalTool
+
       - name: Install NerdBank Global Tool
-        run: nuke :add-package nbgv --version 3.7.115
+        run: dotnet tool install --global nbgv --version 3.7.115
 
       - name: Restore dependencies
         run: dotnet restore .\Source\Bars.Mvvm.sln
@@ -34,8 +37,8 @@ jobs:
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          if ($env:GITHUB_REF -eq 'refs/heads/main') {
-            nuke Publish
-          } else {
-            nuke Pack
-          }
+          #          if ($env:GITHUB_REF -eq 'refs/heads/main') {
+               nuke Publish
+#          } else {
+#            nuke Pack
+#          }
