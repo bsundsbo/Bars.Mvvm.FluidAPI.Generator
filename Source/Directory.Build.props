@@ -22,6 +22,8 @@
         </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Nerdbank.GitVersioning"
 <!--    <PropertyGroup Condition="$(IsRoslynComponent) == 'true'">-->
 <!--        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>-->
 <!--        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>-->

@@ -24,11 +24,8 @@ jobs:
         with:
           dotnet-version: '9.x' # Adjust to match your project's .NET version
 
-      - name: Install NUKE Global Tool
-        run: dotnet tool install --global Nuke.GlobalTool
-
-      - name: Install GitVersion Global Tool
-        run: nuke :add-package GitVersion.Tool --version 6.3.0
+      - name: Install NerdBank Global Tool
+        run: nuke :add-package nbgv --version 3.7.115
 
       - name: Restore dependencies
         run: dotnet restore .\Source\Bars.Mvvm.sln
