@@ -20,7 +20,6 @@
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
         <Copyright>Bjørnar Sundsbø</Copyright>
         <Description>Fluid Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
-        <PackageId>Bars.Mvvm.FluidApi.Generator</PackageId>
         <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluid, Fluid API, Extensions, Convenience methods, Source Generator </PackageTags>
 
         <!-- Project is packable -->
