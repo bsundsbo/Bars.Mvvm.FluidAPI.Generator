@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <RootNamespace>Bars.Mvvm.Build</RootNamespace>
     <NoWarn>CS0649;CS0169</NoWarn>
+    <IsPackable>false</IsPackable>
     <NukeRootDirectory>..</NukeRootDirectory>
     <NukeScriptDirectory>..</NukeScriptDirectory>
     <NukeTelemetryVersion>1</NukeTelemetryVersion>

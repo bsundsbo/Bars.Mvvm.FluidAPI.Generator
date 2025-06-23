@@ -5,24 +5,22 @@
         <Nullable>enable</Nullable>
         <LangVersion>latest</LangVersion>
         <UseWpf>true</UseWpf>
+        <Title>Bars.Mvvm.FluidApi.Wpf</Title>
     </PropertyGroup>
     <PropertyGroup>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IsPackable>true</IsPackable>
-        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm.FluidGenerator</PackageProjectUrl>
+        <Description>Pre-packed Fluid Api for ActiproSoftware WPF Bar Controls ViewModels. Get Package Bars.Mvvm.FluidApi.Generator to get generated Fluid API for the current version.</Description>
         <PackageId>Bars.Mvvm.FluidApi.Wpf</PackageId>
+        <Authors>Bjørnar Sundsbø</Authors>
+        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm</PackageProjectUrl>
+        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <Copyright>Bjørnar Sundsbø</Copyright>
+        <PackageTags>Fluid, Fluid API, Extensions, Convenience methods, WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET</PackageTags>
         <!-- Project is packable -->
-        <NoPackageAnalysis>true</NoPackageAnalysis>
-        <DevelopmentDependency>true</DevelopmentDependency>
+        <IsPackable>true</IsPackable>
     </PropertyGroup>
 
-<!--    <PropertyGroup>-->
-<!--        <EmitCompilerGeneratedFiles>True</EmitCompilerGeneratedFiles>-->
-<!--        <CompilerGeneratedFilesOutputPath>ImageMapper\Generated</CompilerGeneratedFilesOutputPath>-->
-<!--    </PropertyGroup>-->
-
     <ItemGroup>
-        <PackageReference Include="ActiproSoftware.Controls.WPF.Bars.Mvvm"/>
+        <PackageReference Include="ActiproSoftware.Controls.WPF.Bars.Mvvm" Version="[25.1,)"/>
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj"

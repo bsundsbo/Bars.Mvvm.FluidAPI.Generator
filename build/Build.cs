@@ -80,9 +80,11 @@ public partial class Build : NukeBuild
         {
             var packableProjects = Solution.AllProjects
                 .Where(p =>
+                    p.GetProperty<bool>("IsPackable") &&
                     p.Name != null &&
                     !p.Name.EndsWith(".Tests", StringComparison.OrdinalIgnoreCase) &&
-                    File.Exists(p.Path)); // adjust if needed
+                    File.Exists(p.Path))
+                .ToList(); // adjust if needed
 
             foreach (var project in packableProjects)
             {
