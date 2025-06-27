@@ -24,21 +24,20 @@ jobs:
         with:
           dotnet-version: '9.x' # Adjust to match your project's .NET version
 
-      - name: Install NUKE Global Tool
-        run: dotnet tool install --global Nuke.GlobalTool
-
       - name: Install NerdBank Global Tool
-        run: dotnet tool install --global nbgv --version 3.7.115
+        run: nuke :add-package nbgv --version 3.7.115
 
       - name: Restore dependencies
         run: dotnet restore .\Source\Bars.Mvvm.sln
+
+      - name: Publish outputs
+        uses: actions/upload-artifact@v3
+        with:
+            name: outputs
+            path: outputs
 
       - name: Run NUKE Target
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          #          if ($env:GITHUB_REF -eq 'refs/heads/main') {
-               nuke Publish
-#          } else {
-#            nuke Pack
-#          }
+            nuke Publish --NuGetApiKey ${{ secrets.NUGET_API_KEY }}

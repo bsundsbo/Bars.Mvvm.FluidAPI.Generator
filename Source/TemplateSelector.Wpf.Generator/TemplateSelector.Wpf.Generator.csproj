@@ -19,11 +19,12 @@
         <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm</PackageProjectUrl>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
         <Copyright>Bjørnar Sundsbø</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <Description>Fluid Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
         <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluid, Fluid API, Extensions, Convenience methods, Source Generator </PackageTags>
 
         <!-- Project is packable -->
-        <IsPackable>True</IsPackable>
+        <IsPackable>false</IsPackable>
         <!-- Generates a package at build -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <!-- Do not include the generator as a lib dependency -->
@@ -33,6 +34,7 @@
     <ItemGroup>
         <!-- Package the generator in the analyzer directory of the nuget package -->
         <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>

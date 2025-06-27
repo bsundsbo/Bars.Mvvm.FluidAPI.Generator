@@ -11,6 +11,7 @@
         <Description>Pre-packed Fluid Api for ActiproSoftware WPF Bar Controls ViewModels. Get Package Bars.Mvvm.FluidApi.Generator to get generated Fluid API for the current version.</Description>
         <PackageId>Bars.Mvvm.FluidApi.Wpf</PackageId>
         <Authors>Bjørnar Sundsbø</Authors>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm</PackageProjectUrl>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
         <Copyright>Bjørnar Sundsbø</Copyright>
@@ -18,6 +19,9 @@
         <!-- Project is packable -->
         <IsPackable>true</IsPackable>
     </PropertyGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="ActiproSoftware.Controls.WPF.Bars.Mvvm" Version="[25.1,)"/>

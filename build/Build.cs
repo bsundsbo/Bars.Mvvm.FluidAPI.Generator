@@ -1,5 +1,6 @@
 using Nuke.Common;
 using Nuke.Common.CI;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
@@ -20,6 +21,11 @@ public partial class Build : NukeBuild
     public readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
     [Solution(GenerateProjects = true)]
     readonly Solution Solution;
+
+    [Parameter("NuGet API key for publishing packages")]
+    [Secret]
+    readonly string NuGetApiKey;
+
 
     [NerdbankGitVersioning]
     readonly NerdbankGitVersioning NerdbankVersioning;
@@ -107,7 +113,6 @@ public partial class Build : NukeBuild
                 return;
             }
 
-            var apiKey = Environment.GetEnvironmentVariable("NUGET_API_KEY");
             var source = "https://api.nuget.org/v3/index.json";
 
             OutputDirectory.GlobFiles("*.nupkg")
@@ -117,7 +122,7 @@ public partial class Build : NukeBuild
                     DotNetNuGetPush(s => s
                         .SetTargetPath(package)
                         .SetSource(source)
-                        .SetApiKey(apiKey));
+                        .SetApiKey(NuGetApiKey));
                 });
         });
 
