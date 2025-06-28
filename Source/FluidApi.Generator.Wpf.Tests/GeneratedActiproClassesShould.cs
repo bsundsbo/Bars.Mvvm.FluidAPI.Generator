@@ -39,30 +39,23 @@ public class GeneratedActiproClassesShould
     public void Have_All_ReadWrite_Properties()
     {
         var validationResults = new ValidationResult("Classes with missing read/write properties");
-        foreach (var sourceType in _sourceTypes)
+        var typesWithGenerated = _sourceTypes.GetSourceTypesWithGenerated(_generatedTypes);
+
+        foreach (var keyWithGenerated in typesWithGenerated)
         {
-            var generatedMethods = _generatedTypes.GetGeneratedMethodsForType(sourceType);
-            if (generatedMethods.Count == 0)
-            {
-                // Skip as missing generated classes are tested in another test
-                continue;
-            }
-
+            var sourceType = keyWithGenerated.Key;
+            var generatedMethods = keyWithGenerated.Value;
             // Get all public read/write properties
-            var readWriteProperties = sourceType.GetReadWriteProperties();
-            foreach (var sourceProperty in readWriteProperties)
+            var readWriteBooleanProperties = sourceType.GetReadWriteProperties();
+            foreach (var sourceProperty in readWriteBooleanProperties)
             {
-                if (generatedMethods.TryGetValue($"With{sourceProperty.Name}", out var method))
+                if (generatedMethods.TryGetValue($"With{sourceProperty.Name}", out var methods))
                 {
-                    if (sourceProperty.PropertyType != typeof(bool) && sourceProperty.PropertyType != typeof(bool?))
+                    var firstMethod = methods[0];
+                    var lastParameter = firstMethod.GetParameters().LastOrDefault();
+                    if (sourceProperty.IsBoolean() && lastParameter?.IsOptional<bool>() == false)
                     {
-                        continue;
-                    }
-
-                    var lastParameter = method.GetParameters().LastOrDefault();
-                    if (lastParameter?.IsOptional<bool>() == false)
-                    {
-                        validationResults.AddError(sourceType.Name, sourceProperty.Name, $"{method.Name} is expected to have optional bool parameter as last parameter.");
+                        validationResults.AddError(sourceType.Name, sourceProperty.Name, $"{firstMethod.Name} is expected to have optional bool parameter as last parameter.");
                     }
 
                     // If the property is found, it is valid
@@ -106,28 +99,26 @@ public class GeneratedActiproClassesShould
     {
         var validation = new ValidationResult("Classes with missing WithItem\\Items pair with proper signature");
 
-        foreach (var sourceType in _sourceTypes)
-        {
-            var generatedMethods = _generatedTypes.GetGeneratedMethodsForType(sourceType);
-            if (generatedMethods.Count == 0)
-            {
-                // Skip as missing generated classes are tested in another test
-                continue;
-            }
+        var typesWithGenerated = _sourceTypes.GetSourceTypesWithGenerated(_generatedTypes);
 
+        foreach (var keyWithGenerated in typesWithGenerated)
+        {
+            var sourceType = keyWithGenerated.Key;
+            var generatedMethods = keyWithGenerated.Value;
             // Get all public read/write properties
-            var readOnlyObservableProperties = sourceType.GetReadOnlyPropertiesOfObservableCollection();
+            var readOnlyObservableProperties = sourceType.GetReadOnlyProperties()
+                .Where(property => property.IsObservableCollection());
             foreach (var sourceProperty in readOnlyObservableProperties)
             {
                 var collectionTypeParameter = sourceProperty.PropertyType.GenericTypeArguments
                     .FirstOrDefault();
                 // Analyze with plural method to add IEnumerable<T>
                 generatedMethods.TryGetValue($"With{sourceProperty.Name}", out var pluralMethod);
-                AnalyzePluralCollectionProperty(pluralMethod, sourceProperty.Name, validation, sourceType.Name, collectionTypeParameter);
+                AnalyzePluralCollectionProperty(pluralMethod?.FirstOrDefault(), sourceProperty.Name, validation, sourceType.Name, collectionTypeParameter);
 
                 var singularName = sourceProperty.Name.Substring(0, sourceProperty.Name.Length - 1);
                 generatedMethods.TryGetValue($"With{singularName}", out var singularMethod);
-                AnalyzeSingularCollectionProperty(singularMethod, sourceType.Name, sourceProperty.Name, validation, collectionTypeParameter);
+                AnalyzeSingularCollectionProperty(singularMethod?.FirstOrDefault(), sourceType.Name, sourceProperty.Name, validation, collectionTypeParameter);
             }
         }
 
