@@ -112,6 +112,11 @@
             "Release"
           ]
         },
+        "NuGetApiKey": {
+          "type": "string",
+          "description": "NuGet API key for publishing packages",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
         "Solution": {
           "type": "string",
           "description": "Path to a solution file that is automatically loaded"
