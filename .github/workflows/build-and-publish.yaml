@@ -36,7 +36,7 @@ jobs:
         env:
           NUGET_APIKEY: ${{ secrets.NUGET_APIKEY }}
         run: |
-            nuke Publish --configuration Release --NuGetApiKey "$env:NUGET_APIKEY"
+            nuke Publish --configuration Release --NuGetApiKey $env:NUGET_APIKEY
 
       - name: Publish outputs
         uses: actions/upload-artifact@v4
