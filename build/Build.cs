@@ -1,9 +1,10 @@
 using Nuke.Common;
 using Nuke.Common.CI;
+using Nuke.Common.CI.GitHubActions;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
-using Nuke.Common.Tools.GitVersion;
+using Nuke.Common.Tools.NerdbankGitVersioning;
 using Nuke.Common.Utilities.Collections;
 using System;
 using System.IO;
@@ -21,8 +22,13 @@ public partial class Build : NukeBuild
     [Solution(GenerateProjects = true)]
     readonly Solution Solution;
 
-    [GitVersion]
-    readonly GitVersion GitVersion;
+    [Parameter("NuGet API key for publishing packages")]
+    [Secret]
+    readonly string NuGetApiKey;
+
+
+    [NerdbankGitVersioning]
+    readonly NerdbankGitVersioning NerdbankVersioning;
 
     AbsolutePath OutputDirectory => RootDirectory / "output";
 
@@ -41,7 +47,7 @@ public partial class Build : NukeBuild
         });
 
     Target Compile => _ => _
-        .DependsOn(Restore)
+        .DependsOn(Restore, LogVersion)
         .Executes(() =>
         {
             DotNetBuild(s => s
@@ -53,7 +59,7 @@ public partial class Build : NukeBuild
     Target LogVersion => _ => _
         .Executes(() =>
         {
-            Serilog.Log.Logger.Information("GitVersion FullSemVer={FullSemVer}, NuGetVersion {NugetVersion}, InformationalVersion {InformationalVersion}", GitVersion.FullSemVer, GitVersion.NuGetVersion, GitVersion.InformationalVersion);
+            Serilog.Log.Logger.Information("NerdVersion NuGetPackageVersion={NuGetPackageVersion}, AssemblyVersion {AssemblyVersion}, InformationalVersion {AssemblyInformationalVersion}, SimpleVersion {SimpleVersion}", NerdbankVersioning.NuGetPackageVersion, NerdbankVersioning.AssemblyVersion, NerdbankVersioning.AssemblyInformationalVersion, NerdbankVersioning.SimpleVersion);
         });
 
     Target Test => _ => _
@@ -75,7 +81,7 @@ public partial class Build : NukeBuild
         });
 
     Target Pack => _ => _
-        .DependsOn(Test, LogVersion)
+        .DependsOn(Test)
         .Executes(() =>
         {
             var packableProjects = Solution.AllProjects
@@ -93,7 +99,7 @@ public partial class Build : NukeBuild
                     .SetConfiguration(Configuration)
                     .EnableNoBuild()
                     .SetOutputDirectory(OutputDirectory)
-                    .SetVersion(GitVersion.NuGetVersion));
+                    .SetVersion(NerdbankVersioning.NuGetPackageVersion));
             }
         });
 
@@ -107,7 +113,6 @@ public partial class Build : NukeBuild
                 return;
             }
 
-            var apiKey = Environment.GetEnvironmentVariable("NUGET_API_KEY");
             var source = "https://api.nuget.org/v3/index.json";
 
             OutputDirectory.GlobFiles("*.nupkg")
@@ -117,7 +122,7 @@ public partial class Build : NukeBuild
                     DotNetNuGetPush(s => s
                         .SetTargetPath(package)
                         .SetSource(source)
-                        .SetApiKey(apiKey));
+                        .SetApiKey(NuGetApiKey));
                 });
         });
 
