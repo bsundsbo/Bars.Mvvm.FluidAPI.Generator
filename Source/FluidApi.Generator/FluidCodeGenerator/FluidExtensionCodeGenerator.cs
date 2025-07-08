@@ -33,6 +33,7 @@ internal class FluidExtensionCodeGenerator(FluidExtensionPropertyParser parser)
             TargetLibrary.Wpf, new Dictionary<string, string>
             {
                 { "BarComboBoxViewModel", EmbeddedResource.GetContent("CustomExtensions/Wpf/BarComboBoxViewModel.fg-cs") },
+                { "RibbonViewModel", EmbeddedResource.GetContent("CustomExtensions/Wpf/RibbonViewModel.fg-cs") },
             }
         }
     };

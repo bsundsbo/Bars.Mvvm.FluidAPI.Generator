@@ -37,6 +37,7 @@
 
     <ItemGroup>
         <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\BarComboBoxViewModel.fg-cs" />
+        <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\RibbonViewModel.fg-cs" />
         <EmbeddedResource Include="FluidCodeGenerator\Templates\DefaultProperty.fg-cs"/>
         <EmbeddedResource Include="FluidCodeGenerator\Templates\CommandWithParameter.fg-cs"/>
         <EmbeddedResource Include="FluidCodeGenerator\Templates\GetOnlyObservableCollection.fg-cs"/>
