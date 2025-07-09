@@ -1,0 +1,61 @@
+    /// <summary>
+    /// Sets the <see cref="RibbonViewModel.Footer"/> to a <see cref="RibbonFooterSimpleContentViewModel"/> with provided <paramref name="text"/>
+    /// and <paramref name="imageSource"/>.
+    /// </summary>
+    /// <param name="target">The target Ribbon</param>
+    /// <param name="text">The text for the <see cref="RibbonFooterSimpleContentViewModel.Text"/>.</param>
+    /// <param name="imageSource">The value to set for <see cref="RibbonFooterSimpleContentViewModel.ImageSource"/>.</param>
+    /// <param name="kind">The kind of footer, as described in <see cref="RibbonFooterKind"/>.</param>
+    /// <returns>The <see cref="RibbonViewModel"/> to continue chaining.</returns>
+    public static RibbonViewModel WithFooter(this RibbonViewModel target, string text, System.Windows.Media.ImageSource imageSource = null, RibbonFooterKind kind = RibbonFooterKind.Default)
+    {
+        var ribbonFooter = new RibbonFooterViewModel()
+            .WithKind(kind)
+            .WithContent(new RibbonFooterSimpleContentViewModel()
+                .WithText(text)
+                .WithImageSource(imageSource));
+
+        return target.WithFooter(ribbonFooter);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="RibbonViewModel.Footer"/> to contain a <see cref="RibbonFooterInfoBarContentViewModel"/>.
+    /// </summary>
+    /// <param name="target">The control to modify.</param>
+    /// <param name="content">The <see cref="RibbonFooterInfoBarContentViewModel"/> to assign.</param>
+    /// <returns></returns>
+    public static RibbonViewModel WithFooter(this RibbonViewModel target, RibbonFooterInfoBarContentViewModel content)
+    {
+        var ribbonFooter = new RibbonFooterViewModel()
+            .WithContent(content);
+
+        return target.WithFooter(ribbonFooter);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="RibbonViewModel.Footer"/> to a <see cref="RibbonFooterInfoBarContentViewModel"/> provider parameters.
+    /// </summary>
+    /// <param name="target">The target Ribbon</param>
+    /// <param name="title">The title for the <see cref="RibbonFooterInfoBarContentViewModel.Title"/>.</param>
+    /// <param name="message">The message to display in the info bar.</param>
+    /// <param name="severity">The <see cref="ActiproSoftware.Windows.Controls.InfoBarSeverity"/> of the footer.</param>
+    /// <param name="canClose">If the footer can close or not</param>
+    /// <param name="iconSource">The value to set for <see cref="RibbonFooterSimpleContentViewModel.ImageSource"/>.</param>
+    /// <returns>The <see cref="RibbonViewModel"/> to continue chaining.</returns>
+    public static RibbonViewModel WithFooter(this RibbonViewModel target,
+        string title,
+        string message,
+        bool canClose = true,
+        System.Windows.Media.ImageSource iconSource = null,
+        ActiproSoftware.Windows.Controls.InfoBarSeverity severity = InfoBarSeverity.Information)
+    {
+        var ribbonFooter = new RibbonFooterViewModel()
+            .WithContent(new RibbonFooterInfoBarContentViewModel()
+                .WithMessage(message)
+                .WithSeverity(severity)
+                .WithCanClose(canClose)
+                .WithTitle(title)
+                .WithIconSource(iconSource));
+
+        return target.WithFooter(ribbonFooter);
+    }

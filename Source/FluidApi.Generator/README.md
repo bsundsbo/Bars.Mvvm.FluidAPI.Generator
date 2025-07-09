@@ -4,55 +4,57 @@
 
 This package generates extension methods for Actipro's WPF Bars ViewModels for building bars menu and configuring properties, providing a fluid API for creating bar menus in a more declarative way.
 
-# Features 
-* Generated settings for individual properties, to allow for chaining methods in a fluid API style.
-* Convenience methods for reducing boiler plate when constructing bar menus.
+# Features
+* Extension methods for fluent property assignment.
+* Convenience methods to reduce boilerplate when building bar menus.
+
+# [Release notes](./Package-README.md)
 
 # Getting started
 ```
 dotnet add package Bars.Mvvm.FluidApi.Generator
 ```
 
-## Pre-generated extension methods
-If you wish to use pre-generated package instead, with the limitation that you will have to update the package every time Actipro adds new properties to their ViewModels and a new version of this package is available.
-```
-dotnet add package Bars.Mvvm.FluidApi.Wpf
-```
-
-# Usage
-
 ## Basic Usage
-To use the fluid API, you need to register the generated extension methods in your project. This is typically done in a static class that implements `IBarViewModelProvider`.
 
 ```csharp
-iewModels.Register(BarControlKeys.AlignCenter, key
-    => new BarToggleButtonViewModel(key)
-        .WithCommand(setTextAlignmentCommand, TextAlignment.Center)
-        .WithKeyTipText("AC")
-        .WithDescription("Center content with the page."));
+new BarToggleButtonViewModel(key)
+    .WithCommand(setTextAlignmentCommand, TextAlignment.Center)
+    .WithKeyTipText("AC")
+    .WithDescription("Center content with the page.");
 ```
 
 ## Convenience methods
 Providing fluid API for convenience methods to set properties and construct new viewmodels.
 
-### Images
-The `WithImages` method allows you to set all image sizes for a bar item using a registered image key. Available for all view models implementing `IHasVariantImages` interface and all images can be set in one call.
+### WithImages
+**Target**: `IHasVariantImages`
 
+**Parameter**: `IBarImageProvider`
+
+**Effect**: Sets all image sizes for a bar item using a registered image.
 ```csharp
 return new BarButtonViewModel(key)
-    .WithImages(imageProvider, key);
+    .WithImages(imageProvider);
 ```
 
-### Command and command parameters
-Assign a command and its parameter in a single call using the `WithCommand` method. This is available for all view models that have a matching `CommandParameter` property, such as `WithPopupOpeningCommand`, `WithUnmatchedTextCommand`, etc.
+### WithCommand
+**Target**: `ICommand` property with a matching `CommandParameter` property.
 
+**Parameter**: `ICommand`, `CommandParameter`
+
+**Effect**: Assigns a command and its parameter in a single call.
+
+**Examples**: WithCommand, WithPopupOpeningCommand, WithUnmatchedTextCommand
 ```csharp
 return new BarToggleButtonViewModel(key)
     .WithCommand(setTextAlignmentCommand, TextAlignment.Center);
 ```
 
-### Tabs, Items, AboveMenuItem, etc.
-Properties that are declared on the ViewModel as `ObservableCollection<T>`, such as `RibbonTabViewModel.Groups`, RibbonGroupViewModel.Items, BarComboBoxViewModel.AboveMenuItems.
+### ObservableCollection<T>
+**Target**: read-only `ObservableCollection<T>` properties on ViewModels.
+
+**Example**: `RibbonTabViewModel.Groups`, `RibbonGroupViewModel.Items`, `BarComboBoxViewModel.AboveMenuItems`.
 
 Adding a batch of items
 ```csharp
@@ -79,6 +81,26 @@ return new BarComboBoxViewModel()
     .WithUnmatchedTextCommand(unmatchedTextCommand, true);
 ```
 
+### RibbonViewModel.Footer
+Use `WithFooter` has multiple overloads for ease of use.
+
+Simple footer with text and optional image/kind:
+
+```csharp
+.WithFooter("I have a warning for you!", warningImageSource, RibbonFooterKind.Warning)
+```
+Info bar footer without having to declare the RibbonFooterViewModel explicitly:
+```csharp
+.WithFooter(new RibbonFooterInfoBarContentViewModel()
+    .WithSeverity(InfoBarSeverity.Error)
+    .WithTitle("Footer Title")
+    .WithMessage("This is a footer message!")
+```
+
+Info bar footer with a shorthand parameters:
+```csharp
+.WithFooter("Title", "Message", severity: InfoBarSeverity.Error, canClose: true)
+```
 ## Simple sample
 As a simple syntax example, the following code shows how to create a `BarToggleButtonViewModel` with a command and some additional properties using the fluid API.
 
@@ -112,4 +134,8 @@ viewModels.Register(BarControlKeys.AlignCenter, key
 
 
 The fluid API is available as a incremental Source Generator to reduce the need to upgrade to a new package every time Actipro adds new properties to their ViewModels and then having to wait for a new version of the Fluid API NuGet package to get full support.
-d in Avalonia support, please let me know by creating an issue or a discussion in the repository.
+
+## Avalonia support
+Avalonia support is partially implemented, though not tested. Since I work with WPF, I want to extend to support what I need for that, and can later extend to support Avalonia if there is any demand for it.
+
+Please let me know by creating an issue or a discussion in the project.
