@@ -8,17 +8,7 @@ This package generates extension methods for Actipro's WPF Bars ViewModels for b
 * Extension methods for fluent property assignment.
 * Convenience methods to reduce boilerplate when building bar menus.
 
-# Release Notes:
-
-0.1.0
-* Initial release with basic functionality for generating extension methods.
-* Convenience methods:
-    * `WithCommand` to assign commands and parameters in a single call for ICommand properties with matching command parameter property.
-    * `BarComboBox.WithUnmatchedTextCommand` with overload for setting IsUnmatchedTextAllowed.
-    * `IHasVariantImages.WithImages` to set all image sizes for a `IHasVariantImages` using a registered image from `IBarImageProvider`.
-    * `RibbonViewModel.WithFooter` with various overloads for quickly setting simple footer or or info bar footer.
-    * `WithItem`, `WithTab`, `WithGroup` for adding items to read-only `ObservableCollection<T>` properties on ViewModels like `RibbonTabViewModel.Groups`, `RibbonGroupViewModel.Items`, and `BarComboBoxViewModel.AboveMenuItems`.
-    * `WithItems`, `WithTabs`, etc for adding a batch of items to `ObservableCollection<T>` properties.
+# [Release notes](./Package-README.md)
 
 # Getting started
 ```

@@ -1,0 +1,25 @@
+    /// <summary>
+    /// Adds a separator to the <see cref="RibbonBackstageViewModel"/> with the specified header alignment
+    /// to the end of the <see cref="RibbonBackstageViewModel.Items"/> collection.
+    /// </summary>
+    /// <param name="target">The target to add the separator to.</param>
+    /// <returns></returns>
+    /// <remarks>THe alignment of this separator will be <see cref="RibbonBackstageHeaderAlignment.Top"/></remarks>
+    public static RibbonBackstageViewModel WithItemSeparator(this RibbonBackstageViewModel target)
+    {
+        return target.WithItemSeparator(ActiproSoftware.Windows.Controls.Bars.RibbonBackstageHeaderAlignment.Top);
+    }
+
+    /// <summary>
+    /// Adds a separator to the <see cref="RibbonBackstageViewModel"/> with the specified header alignment
+    /// to the end of the <see cref="RibbonBackstageViewModel.Items"/> collection.
+    /// </summary>
+    /// <param name="target">The target to add the separator to.</param>
+    /// <param name="alignment">Alignment</param>
+    /// <returns></returns>
+    public static RibbonBackstageViewModel WithItemSeparator(this RibbonBackstageViewModel target, ActiproSoftware.Windows.Controls.Bars.RibbonBackstageHeaderAlignment alignment)
+    {
+        return target
+            .WithItem(new RibbonBackstageHeaderSeparatorViewModel()
+                .WithHeaderAlignment(alignment));
+    }
