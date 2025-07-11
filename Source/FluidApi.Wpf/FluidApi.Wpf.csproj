@@ -17,7 +17,7 @@
         <Copyright>Bjørnar Sundsbø</Copyright>
         <PackageTags>Fluid, Fluid API, Extensions, Convenience methods, WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET</PackageTags>
         <!-- Project is packable -->
-        <IsPackable>true</IsPackable>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\" />
