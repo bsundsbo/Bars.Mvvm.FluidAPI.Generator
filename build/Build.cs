@@ -1,6 +1,7 @@
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.GitHubActions;
+using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
@@ -103,10 +104,20 @@ public partial class Build : NukeBuild
             }
         });
 
+    [GitRepository]
+    readonly GitRepository GitRepository;
+
+
     Target Publish => _ => _
         .DependsOn(Pack)
         .Executes(() =>
         {
+            var allowedBranches = new[] { "release", "main", "develop" };
+            if (GitRepository.Branch == null || !allowedBranches.Any(branch => GitRepository.Branch.StartsWith(branch, StringComparison.OrdinalIgnoreCase)))
+            {
+                Serilog.Log.Logger.Information("Skipping publish step on branch: {BranchName}", GitRepository.Branch);
+                return;
+            }
             if (IsLocalBuild)
             {
                 Serilog.Log.Logger.Information("Not publishing packages in local build");
