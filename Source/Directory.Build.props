@@ -26,12 +26,4 @@
         <PackageReference Include="Nerdbank.GitVersioning"
                           PrivateAssets="all"/>
     </ItemGroup>
-
-<!--    <PropertyGroup Condition="$(IsRoslynComponent) == 'true'">-->
-<!--        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>-->
-<!--        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>-->
-<!--    </PropertyGroup>-->
-<!--    <ItemGroup Condition="$(IsRoslynComponent) == 'true'">-->
-<!--        <PackageReference Include="Scriban" IncludeAssets="Build" />-->
-<!--    </ItemGroup>-->
 </Project>
