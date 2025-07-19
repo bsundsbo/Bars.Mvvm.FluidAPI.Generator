@@ -1,7 +1,5 @@
-using ActiproSoftware.Windows.Controls;
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 using MahApps.Metro.IconPacks;
-using System.Windows;
 using System.Windows.Media;
 
 namespace Bars.Mvvm.FluidGenerator.Sample;
