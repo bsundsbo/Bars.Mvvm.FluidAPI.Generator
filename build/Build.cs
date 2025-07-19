@@ -1,6 +1,6 @@
 using Nuke.Common;
 using Nuke.Common.CI;
-using Nuke.Common.CI.GitHubActions;
+using Nuke.Common.Git;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
@@ -17,18 +17,23 @@ namespace Bars.Mvvm.Build;
 public partial class Build : NukeBuild
 {
     public static int Main() => Execute<Build>(x => x.Publish);
+
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]
     public readonly Configuration Configuration = IsLocalBuild ? Configuration.Debug : Configuration.Release;
+
     [Solution(GenerateProjects = true)]
     readonly Solution Solution;
+
+    [NerdbankGitVersioning]
+    readonly NerdbankGitVersioning NerdbankVersioning;
 
     [Parameter("NuGet API key for publishing packages")]
     [Secret]
     readonly string NuGetApiKey;
 
+    [GitRepository]
+    readonly GitRepository GitRepository;
 
-    [NerdbankGitVersioning]
-    readonly NerdbankGitVersioning NerdbankVersioning;
 
     AbsolutePath OutputDirectory => RootDirectory / "output";
 
@@ -107,6 +112,12 @@ public partial class Build : NukeBuild
         .DependsOn(Pack)
         .Executes(() =>
         {
+            var allowedBranches = new[] { "release" };
+            if (GitRepository.Branch == null || !allowedBranches.Any(branch => GitRepository.Branch.StartsWith(branch, StringComparison.OrdinalIgnoreCase)))
+            {
+                Serilog.Log.Logger.Information("Skipping publish step on branch: {BranchName}", GitRepository.Branch);
+                return;
+            }
             if (IsLocalBuild)
             {
                 Serilog.Log.Logger.Information("Not publishing packages in local build");

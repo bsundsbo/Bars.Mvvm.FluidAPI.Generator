@@ -7,8 +7,8 @@ namespace Bars.Mvvm.FluidApi.Common;
 /// </summary>
 public static class ActiproTypeExtensions
 {
-    public const string WpfNamespace = "ActiproSoftware.Windows.Controls.Bars.Mvvm";
     // ReSharper disable MemberCanBePrivate.Global
+    public const string WpfNamespace = "ActiproSoftware.Windows.Controls.Bars.Mvvm";
     public const string WpfObservableObjectBase = "ActiproSoftware.Windows.ObservableObjectBase";
     public const string AvaloniaNamespace = "ActiproSoftware.UI.Avalonia.Controls.Bars.Mvvm";
     public const string AvaloniaObservableObject = "ActiproSoftware.ObservableObjectBase";

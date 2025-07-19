@@ -50,6 +50,7 @@
         ActiproSoftware.Windows.Controls.InfoBarSeverity severity = InfoBarSeverity.Information)
     {
         var ribbonFooter = new RibbonFooterViewModel()
+            .WithPadding(new System.Windows.Thickness(0, 0, 0, 0))
             .WithContent(new RibbonFooterInfoBarContentViewModel()
                 .WithMessage(message)
                 .WithSeverity(severity)
