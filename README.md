@@ -1,11 +1,11 @@
-# Bars.Mvvm
-# Fluid API for Actipro WPF Bars
+# Bars.Mvvm.FluidApi
 The goal of this project is to extend ActiproSoftware's [WPF-Library](https://github.com/Actipro/WPF-Controls) to offer a more simplified implementation of [bar menus](https://www.actiprosoftware.com/products/controls/wpf/bars) through MVVM.
 
-[![NuGet](https://img.shields.io/nuget/v/Bars.Mvvm.FluidGenerator.svg)](https://www.nuget.org/packages/Bars.Mvvm.FluidApi.Generator/)
+# Sample Application
+See the [sample application](./Source/FluidApi.Wpf.Sample/README.md) for a demonstration of the features provided by this library.
 
 # Fluid API Features
-Click the link to read more about the features and how to use them:
+
 * **[Fluent API](./Source/FluidApi.Generator/README.md)**: The fluid API allows you to create bar menus in a more declarative way, making it easier to read and maintain. 
 * **[DataTemplate selector generator](./Source/TemplateSelector.Wpf.Generator/README.md)**: reduces the need to manually create `ComponentResourceKey` and map to the properties of `DataTemplateSelector` or `ItemContainerTemplateSelector`.
 
