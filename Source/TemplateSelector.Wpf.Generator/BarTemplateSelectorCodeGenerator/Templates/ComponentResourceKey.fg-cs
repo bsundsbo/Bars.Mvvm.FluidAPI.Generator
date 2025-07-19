@@ -1,7 +1,0 @@
-    private static ComponentResourceKey {{VariableName}};
-
-    /// <summary>
-    /// Gets the <see cref="ComponentResourceKey" /> for <see cref="{{SelectorClassName}}.{{PropertyName}}" />.
-    /// </summary>
-    public static ResourceKey {{PropertyName}}
-        => {{VariableName}} ??= new ComponentResourceKey(typeof({{ResourceKeyClassName}}), nameof({{PropertyName}}));
