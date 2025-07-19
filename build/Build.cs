@@ -112,7 +112,7 @@ public partial class Build : NukeBuild
         .DependsOn(Pack)
         .Executes(() =>
         {
-            var allowedBranches = new[] { "release", "develop" };
+            var allowedBranches = new[] { "release" };
             if (GitRepository.Branch == null || !allowedBranches.Any(branch => GitRepository.Branch.StartsWith(branch, StringComparison.OrdinalIgnoreCase)))
             {
                 Serilog.Log.Logger.Information("Skipping publish step on branch: {BranchName}", GitRepository.Branch);
