@@ -10,7 +10,7 @@
     </PropertyGroup>
     <PropertyGroup>
         <Authors>Bjørnar Sundsbø</Authors>
-        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm.FluidAPI.Generator</PackageProjectUrl>
         <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
         <Copyright>Bjørnar Sundsbø</Copyright>
         <Description>Fluid Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
