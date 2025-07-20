@@ -1,5 +1,5 @@
 # Bars.Mvvm.FluidApi.Generator
-The goal of this project is to extend ActiproSoftware's [WPF-Library](https://github.com/Actipro/WPF-Controls) to offer a more simplified implementation of [bar menus](https://www.actiprosoftware.com/products/controls/wpf/bars) through MVVM.
+The goal of this project is to extend ActiproSoftware's [WPF-Library](https://github.com/Actipro/WPF-Controls) to offer a more simplified implementation of [bar menus](https://www.actiprosoftware.com/products/controls/wpf/bars) through Fluid extension methods and method chaining.
 
 # Fluid API Features
 
