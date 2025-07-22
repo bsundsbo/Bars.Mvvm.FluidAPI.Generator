@@ -11,8 +11,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\FluidApi.Common\FluidApi.Common.csproj" />
-        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\FluentApi.Common\FluentApi.Common.csproj" />
+        <ProjectReference Include="..\FluentApi.Generator\FluentApi.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>

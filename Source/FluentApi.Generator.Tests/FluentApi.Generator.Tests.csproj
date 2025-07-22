@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\FluidApi.Generator\FluidApi.Generator.csproj" />
+        <ProjectReference Include="..\FluentApi.Generator\FluentApi.Generator.csproj" />
     </ItemGroup>
 
     <ItemGroup>
