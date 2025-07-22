@@ -3,7 +3,7 @@
   "profiles": {
     "DebugRoslynSourceGenerator": {
       "commandName": "DebugRoslynComponent",
-      "targetProject": "../FluidApi.Wpf.Console/FluidApi.Wpf.Console.csproj"
+      "targetProject": "../FluentApi.Wpf.Console/FluentApi.Wpf.Console.csproj"
     }
   }
 }

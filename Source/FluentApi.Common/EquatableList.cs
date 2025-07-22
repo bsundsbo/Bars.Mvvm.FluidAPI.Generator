@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Bars.Mvvm.FluidApi.Common;
+namespace Bars.Mvvm.FluentApi.Common;
 
 /// <summary>
 /// EquitableList is a custom list that implements IEquatable to allow for value-based equality checks..

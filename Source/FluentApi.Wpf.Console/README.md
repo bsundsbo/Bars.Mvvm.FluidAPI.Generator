@@ -1,5 +1,5 @@
-# Bars.Mvvm.FluidApi.Generator.Console
+# Bars.Mvvm.FluentApi.Generator.Console
 
-This project is used for debugging the Bars.Mvvm.FluidApi.Generator project.
+This project is used for debugging the Bars.Mvvm.FluentApi.Generator project.
 
-See FluidApi.Generator\Properties\launchSettings.json for configuration referencing this console application.
+See FluentApi.Generator\Properties\launchSettings.json for configuration referencing this console application.

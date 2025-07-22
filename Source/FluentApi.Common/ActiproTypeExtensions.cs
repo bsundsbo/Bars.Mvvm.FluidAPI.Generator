@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluidApi.Common;
+namespace Bars.Mvvm.FluentApi.Common;
 
 /// <summary>
 /// Extension methods for <see cref="INamedTypeSymbol"/>.

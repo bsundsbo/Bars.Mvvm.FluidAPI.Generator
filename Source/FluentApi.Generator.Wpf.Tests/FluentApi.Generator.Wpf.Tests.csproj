@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <LangVersion>latest</LangVersion>
-        <RootNamespace>Bars.Mvvm.FluidGenerator.Tests</RootNamespace>
+        <RootNamespace>Bars.Mvvm.FluentApi.Generator.Tests</RootNamespace>
         <UseWpf>true</UseWpf>
     </PropertyGroup>
 

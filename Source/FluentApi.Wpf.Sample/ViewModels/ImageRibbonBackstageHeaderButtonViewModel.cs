@@ -1,7 +1,7 @@
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 using System.Windows.Media;
 
-namespace Bars.Mvvm.FluidGenerator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Sample;
 
 /// <summary>
 /// Temporary class until the MVVM package supports IHasVariantImages for backstage header buttons and gives

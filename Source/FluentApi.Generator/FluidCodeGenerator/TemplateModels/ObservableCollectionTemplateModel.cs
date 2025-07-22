@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluidGenerator.Models;
+namespace Bars.Mvvm.FluentApi.Generator.Models;
 
 /// <summary>
 /// Model used for generating ObservableCollection properties.

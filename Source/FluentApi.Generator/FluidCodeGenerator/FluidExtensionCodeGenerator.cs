@@ -1,15 +1,15 @@
-﻿using Bars.Mvvm.FluidApi.Common;
+﻿using Bars.Mvvm.FluentApi.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
-using Bars.Mvvm.FluidGenerator.Models;
+using Bars.Mvvm.FluentApi.Generator.Models;
 using Microsoft.CodeAnalysis;
 using Scriban;
 
-namespace Bars.Mvvm.FluidApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator;
 
 /// <summary>
 /// This generator is responsible for generating Fluid API for Bars MVVM ViewModels for easy configuration.

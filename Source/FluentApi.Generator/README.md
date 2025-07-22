@@ -1,6 +1,6 @@
-# Bars.Mvvm.FluidApi.Generator
-[![NuGet](https://img.shields.io/nuget/v/Bars.Mvvm.FluidApi.Generator.svg)](https://www.nuget.org/packages/Bars.Mvvm.FluidApi.Generator/)
-[![Downloads](https://img.shields.io/nuget/dt/Bars.Mvvm.FluidApi.Generator?label=Downloads)](https://www.nuget.org/packages/Bars.Mvvm.FluidApi.Generator/)
+# Bars.Mvvm.FluentApi.Generator
+[![NuGet](https://img.shields.io/nuget/v/Bars.Mvvm.FluentApi.Generator.svg)](https://www.nuget.org/packages/Bars.Mvvm.FluentApi.Generator/)
+[![Downloads](https://img.shields.io/nuget/dt/Bars.Mvvm.FluentApi.Generator?label=Downloads)](https://www.nuget.org/packages/Bars.Mvvm.FluentApi.Generator/)
 
 This package generates extension methods for Actipro's WPF Bars ViewModels for building bars menu and configuring properties, providing a fluid API for creating bar menus in a more declarative way.
 
@@ -12,7 +12,7 @@ This package generates extension methods for Actipro's WPF Bars ViewModels for b
 
 # Getting started
 ```
-dotnet add package Bars.Mvvm.FluidApi.Generator
+dotnet add package Bars.Mvvm.FluentApi.Generator
 ```
 
 ## Basic Usage

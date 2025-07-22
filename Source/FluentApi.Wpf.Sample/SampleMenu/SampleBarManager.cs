@@ -1,7 +1,7 @@
 using ActiproSoftware.Windows.Controls.Bars;
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 
-namespace Bars.Mvvm.FluidGenerator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Sample;
 
 public class SampleBarManager
 {

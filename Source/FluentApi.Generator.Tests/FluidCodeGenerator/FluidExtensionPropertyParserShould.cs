@@ -1,9 +1,9 @@
-﻿using Bars.Mvvm.FluidGenerator.Models;
-using Bars.Mvvm.FluidApi.Generator;
+﻿using Bars.Mvvm.FluentApi.Generator;
+using Bars.Mvvm.FluentApi.Generator.Models;
 using FluentAssertions;
 using Xunit;
 
-namespace Bars.Mvvm.FluidGenerator.Tests.FluidCodeGenerator;
+namespace Bars.Mvvm.FluentApi.Generator.Tests.FluidCodeGenerator;
 
 public class FluidExtensionPropertyParserShould
 {

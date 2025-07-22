@@ -1,4 +1,4 @@
-﻿<Application x:Class="Bars.Mvvm.FluidGenerator.Sample.App"
+﻿<Application x:Class="Bars.Mvvm.FluentApi.Generator.Sample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">

@@ -1,10 +1,10 @@
-using Bars.Mvvm.FluidApi.Common;
+using Bars.Mvvm.FluentApi.Common;
 using System.Collections.Generic;
 using System.Linq;
-using Bars.Mvvm.FluidGenerator.Models;
+using Bars.Mvvm.FluentApi.Generator.Models;
 using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluidApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator;
 
 /// <summary>
 /// Helper class for processing properties to generate code for.

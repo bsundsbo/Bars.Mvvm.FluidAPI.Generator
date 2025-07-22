@@ -1,4 +1,4 @@
-using Bars.Mvvm.FluidApi.Common;
+using Bars.Mvvm.FluentApi.Common;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
 // ReSharper disable once CheckNamespace
-namespace Bars.Mvvm.FluidApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator;
 
 /// <summary>
 /// Extensions methods for <see cref="MetadataReference"/>.

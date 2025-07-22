@@ -1,7 +1,7 @@
-# FluidApi.Generator.Tests
+# FluentApi.Generator.Tests
 
-## Unit test project for the FluidApi.Generator
-This project contains unit tests for the FluidApi.Generator.
+## Unit test project for the FluentApi.Generator
+This project contains unit tests for the FluentApi.Generator.
 
 ### TODO:
 Since this started out as a proof of concept and a learning opportunity for Source Generators, the focus was initially on 

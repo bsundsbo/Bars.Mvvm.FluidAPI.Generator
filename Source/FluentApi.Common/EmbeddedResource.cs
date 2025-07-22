@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Bars.Mvvm.FluidApi.Common;
+namespace Bars.Mvvm.FluentApi.Common;
 
 /// <summary>
 /// Helper class for reading embedded resources.
