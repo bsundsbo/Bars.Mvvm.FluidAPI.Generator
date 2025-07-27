@@ -1,10 +1,10 @@
-using Bars.Mvvm.FluentApi.Common;
-using Bars.Mvvm.FluentApi.Generator.Models;
+using Bars.Mvvm.FluentApi.Generator.Extensions;
+using Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 using Scriban;
 using System;
 using System.Collections.Generic;
 
-namespace Bars.Mvvm.FluentApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
 /// This class maps property template models to their corresponding Scriban templates.

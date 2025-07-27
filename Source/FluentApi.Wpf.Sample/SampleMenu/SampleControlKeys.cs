@@ -1,6 +1,6 @@
 ﻿using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 /// <summary>
 /// This class contains the keys for the sample controls, which are referenced when registering the controls with <see cref="BarControlViewModelCollection"/>

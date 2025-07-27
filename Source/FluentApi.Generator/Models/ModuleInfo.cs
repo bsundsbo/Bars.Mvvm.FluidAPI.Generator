@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using System;
 
-namespace Bars.Mvvm.FluentApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
 /// Represents a module information for reference.

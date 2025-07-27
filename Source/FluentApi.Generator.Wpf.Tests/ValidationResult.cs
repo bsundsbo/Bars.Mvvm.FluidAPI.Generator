@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Bars.Mvvm.FluentApi.Generator.Wpf.Test;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Wpf.Test;
 
 /// <summary>
 /// Populates the validation result with the errors found.

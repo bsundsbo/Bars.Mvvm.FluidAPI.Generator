@@ -16,7 +16,7 @@
         <Description>Fluent Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
         <PackageId>Bars.Mvvm.FluentApi.Generator</PackageId>
         <PackageReadmeFile>Package-README.md</PackageReadmeFile>
-        <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluent, Fluent API, Fluid, Fluid API, Extensions, Convenience methods, Source Generator </PackageTags>
+        <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluent, Fluid, Extensions, Convenience methods, Source Generator</PackageTags>
 
         <!-- Project is packable -->
         <NoPackageAnalysis>true</NoPackageAnalysis>
@@ -26,7 +26,7 @@
 
     <ItemGroup>
         <InternalsVisibleTo Include="FluentApi.Generator.Tests" />
-        <InternalsVisibleTo Include="FluentApi.Generator.Wpf.Test" />
+        <InternalsVisibleTo Include="FluentApi.Generator.Wpf.Tests" />
     </ItemGroup>
 
     <ItemGroup>
@@ -60,13 +60,7 @@
     <ItemGroup>
         <PackageReference Include="Scriban" IncludeAssets="Build"  PrivateAssets="all"/>
     </ItemGroup>
-
-
     <ItemGroup>
-        <!-- Workaround: Project reference to FluentApi.Common is for some reason not included in the deploy, so while
-         I figure this one out in a reliable way, I work around it with Link -->
-        <Compile Include="..\FluentApi.Common\*.cs">
-            <Link>FluentApi.Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
+      <Folder Include="Common\" />
     </ItemGroup>
 </Project>

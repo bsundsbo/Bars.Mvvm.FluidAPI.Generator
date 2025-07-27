@@ -1,6 +1,6 @@
 using JetBrains.Annotations;
 
-namespace Bars.Mvvm.FluentApi.Generator.Models;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 
 /// <summary>
 /// Represents a class used for generating code for setter for IHasVariantImages

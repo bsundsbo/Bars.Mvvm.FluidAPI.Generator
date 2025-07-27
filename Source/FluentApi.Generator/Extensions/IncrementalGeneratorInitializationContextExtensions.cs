@@ -2,7 +2,7 @@ using System;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluentApi.Generator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
 /// Extension methods for <see cref="IncrementalGeneratorInitializationContext"/>.

@@ -1,7 +1,7 @@
 ﻿using ActiproSoftware.Windows;
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 /// <summary>
 /// Main viewmodel for the sample application.

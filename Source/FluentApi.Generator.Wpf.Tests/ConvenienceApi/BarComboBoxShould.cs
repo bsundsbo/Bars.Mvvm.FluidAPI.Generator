@@ -1,11 +1,9 @@
 ﻿using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 using ActiproSoftware.Windows.Input;
-using Bars.Mvvm.FluentApi.Common;
 using FluentAssertions;
-using System.Reflection;
 using Xunit;
 
-namespace Bars.Mvvm.FluentApi.Generator.Wpf.Test;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Wpf.Test;
 /// <summary>
 /// Verifies the output of the generator, and assert against source classes.
 /// </summary>

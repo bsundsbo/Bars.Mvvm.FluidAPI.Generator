@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
-namespace Bars.Mvvm.FluentApi.Generator.Tests.FluidCodeGenerator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Tests.FluidCodeGenerator;
 
 public static class SymbolFactory
 {

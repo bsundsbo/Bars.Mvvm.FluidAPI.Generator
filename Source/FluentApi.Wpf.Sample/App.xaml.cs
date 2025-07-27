@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 /// <summary>
 /// Interaction logic for App.xaml

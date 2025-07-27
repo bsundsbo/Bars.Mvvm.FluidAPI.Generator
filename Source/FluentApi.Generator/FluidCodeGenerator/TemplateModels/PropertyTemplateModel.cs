@@ -1,6 +1,6 @@
 using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluentApi.Generator.Models;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 
 /// <summary>
 /// Base model for specific property template models. All these properties are used in various templates when generating code.

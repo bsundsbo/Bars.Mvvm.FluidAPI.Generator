@@ -1,7 +1,7 @@
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 using System.Windows.Media;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 /// <summary>
 /// Temporary class until the MVVM package supports IHasVariantImages for <see cref="RibbonBackstageTabViewModel"/> and gives

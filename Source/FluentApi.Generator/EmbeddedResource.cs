@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Bars.Mvvm.FluentApi.Common;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
 /// Helper class for reading embedded resources.

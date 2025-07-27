@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Reflection;
 
-namespace Bars.Mvvm.FluentApi.Generator.Wpf.Test;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Wpf.Test;
 
 /// <summary>
 /// Extension methods for helping with integration and unit tests

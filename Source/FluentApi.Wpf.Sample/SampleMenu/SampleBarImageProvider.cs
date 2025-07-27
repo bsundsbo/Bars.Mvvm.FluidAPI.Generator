@@ -1,7 +1,7 @@
 using ActiproSoftware.Windows.Controls.Bars.Mvvm;
 using MahApps.Metro.IconPacks;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 public class SampleBarImageProvider : BarImageProvider
 {

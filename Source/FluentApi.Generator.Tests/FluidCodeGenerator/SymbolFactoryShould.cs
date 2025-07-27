@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace Bars.Mvvm.FluentApi.Generator.Tests.FluidCodeGenerator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Tests.FluidCodeGenerator;
 
 /// <summary>
 /// Test class for verifying SymbolFactory functionality.

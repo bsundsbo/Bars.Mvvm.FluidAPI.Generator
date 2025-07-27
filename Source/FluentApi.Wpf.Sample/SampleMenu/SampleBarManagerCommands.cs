@@ -6,7 +6,7 @@ using MahApps.Metro.IconPacks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Bars.Mvvm.FluentApi.Generator.Sample;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
 
 public class SampleBarManagerCommands
 {

@@ -1,16 +1,16 @@
 ﻿using ActiproSoftware.Windows.Controls.Bars.Mvvm;
-using Bars.Mvvm.FluentApi.Common;
 using FluentAssertions;
 using System.Reflection;
 using Xunit;
 
-namespace Bars.Mvvm.FluentApi.Generator.Wpf.Test;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Wpf.Test;
 
 /// <summary>
 /// Verifies the output of the generator, and assert against source classes.
 /// </summary>
 public class GeneratedActiproClassesShould
 {
+    private const string WpfNamespace = "ActiproSoftware.Windows.Controls.Bars.Mvvm";
     private readonly List<Type> _generatedTypes;
     private readonly List<Type> _sourceTypes;
 
@@ -19,7 +19,7 @@ public class GeneratedActiproClassesShould
         Type sourceType = typeof(BarButtonViewModel);
         _sourceTypes = GetSourceTypes(sourceType);
         _generatedTypes = this.GetType()
-            .GetExtensionClassesFromTypeAssembly(ActiproTypeExtensions.WpfNamespace);
+            .GetExtensionClassesFromTypeAssembly(WpfNamespace);
     }
 
     [Fact]
@@ -174,7 +174,7 @@ public class GeneratedActiproClassesShould
 
     private static bool IsValidClass(Type type)
     {
-        return type is {IsClass: true, IsAbstract: false, IsGenericType: false, Namespace: ActiproTypeExtensions.WpfNamespace} && type.GetInterface("INotifyPropertyChanged") != null;
+        return type is {IsClass: true, IsAbstract: false, IsGenericType: false, Namespace: WpfNamespace} && type.GetInterface("INotifyPropertyChanged") != null;
     }
 
     private static List<Type> GetSourceTypes(Type type)

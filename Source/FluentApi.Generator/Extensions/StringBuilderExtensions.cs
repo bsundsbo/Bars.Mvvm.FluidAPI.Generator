@@ -2,7 +2,7 @@ using System.Text;
 
 // ReSharper disable UnusedMethodReturnValue.Global
 
-namespace Bars.Mvvm.FluentApi.Common;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
 /// Contains extension methods for <see cref="StringBuilder"/> to simplify code generation.
