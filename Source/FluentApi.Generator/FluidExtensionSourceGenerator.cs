@@ -8,7 +8,7 @@ using Microsoft.CodeAnalysis;
 namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
-/// Code generator for generating Fluent API extensions for Actipro MVVM classes. These extensions are provide easy chaining to set properties,
+/// Code generator for generating Fluent API extensions for Actipro MVVM classes. These extensions provide easy chaining to set properties,
 /// but will be extended to support more complex scenarios for convenience methods and reduce other boilerplate code in MVVM applications.
 /// The generator will support both WPF and Avalonia platforms, generating appropriate code based on the type of classes found in the referenced assemblies.
 /// </summary>
