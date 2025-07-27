@@ -6,4 +6,4 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 /// Represents a class used for generating code for setter for IHasVariantImages
 /// </summary>
 /// <param name="ClassName">Name of the class.</param>
-public record HasVariantImageTemplateModel([UsedImplicitly(Reason = "Used in template")] string ClassName) : IExtensionTemplateModel;
+internal record HasVariantImageTemplateModel([UsedImplicitly(Reason = "Used in template")] string ClassName) : IExtensionTemplateModel;

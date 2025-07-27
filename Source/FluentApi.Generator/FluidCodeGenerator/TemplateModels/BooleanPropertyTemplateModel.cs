@@ -6,7 +6,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 /// This class represents the backing properties for rendering proper values to
 /// the template for boolean properties where the value defaults to true.
 /// </summary>
-public record BooleanPropertyTemplateModel : PropertyTemplateModel
+internal record BooleanPropertyTemplateModel : PropertyTemplateModel
 {
     public BooleanPropertyTemplateModel(INamedTypeSymbol classSymbol,
         IPropertySymbol propertySymbol)

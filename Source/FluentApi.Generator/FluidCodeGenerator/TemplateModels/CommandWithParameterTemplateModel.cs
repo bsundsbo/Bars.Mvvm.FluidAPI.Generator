@@ -6,7 +6,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 /// This class represents a template model for a command with a parameter
 /// to assign the command parameter with the command.
 /// </summary>
-public record CommandWithParameterTemplateModel : PropertyTemplateModel
+internal record CommandWithParameterTemplateModel : PropertyTemplateModel
 {
     public CommandWithParameterTemplateModel(INamedTypeSymbol classSymbol,
         IPropertySymbol property,

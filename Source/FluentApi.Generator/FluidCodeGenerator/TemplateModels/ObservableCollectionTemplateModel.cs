@@ -5,7 +5,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions.Models;
 /// <summary>
 /// Model used for generating ObservableCollection properties.
 /// </summary>
-public record ObservableCollectionTemplateModel : PropertyTemplateModel
+internal record ObservableCollectionTemplateModel : PropertyTemplateModel
 {
     public ObservableCollectionTemplateModel(INamedTypeSymbol classSymbol,
         IPropertySymbol property,

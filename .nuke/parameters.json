@@ -1,4 +1,4 @@
 {
   "$schema": "build.schema.json",
-  "Solution": "Source/Bars.Mvvm.sln"
+  "Solution": "Source/Bars.Mvvm.FluentApi.sln"
 }
