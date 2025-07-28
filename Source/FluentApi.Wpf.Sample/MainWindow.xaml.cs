@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Bars.Mvvm.FluentApi.Generator.Extensions.Sample;
+namespace Bars.Mvvm.FluentApi.Wpf.Sample;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
