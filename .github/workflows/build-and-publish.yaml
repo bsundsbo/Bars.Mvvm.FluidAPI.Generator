@@ -30,7 +30,7 @@ jobs:
         run: nuke :add-package nbgv --version 3.7.115
 
       - name: Restore dependencies
-        run: dotnet restore .\Source\Bars.Mvvm.sln
+        run: dotnet restore .\Source\Bars.Mvvm.FluentApi.sln
 
       - name: Run NUKE Target
         run: |

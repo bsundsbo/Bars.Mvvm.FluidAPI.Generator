@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <RootNamespace>Bars.Mvvm.FluentApi.Generator</RootNamespace>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+    </PropertyGroup>
+    <PropertyGroup>
+        <Authors>Bjørnar Sundsbø</Authors>
+        <PackageProjectUrl>https://github.com/bsundsbo/Bars.Mvvm.FluentApi.Generator</PackageProjectUrl>
+        <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+        <Copyright>Bjørnar Sundsbø</Copyright>
+        <Description>Fluent Api Source Generator for ActiproSoftware WPF Bar Controls ViewModels.</Description>
+        <PackageId>Bars.Mvvm.FluentApi.Generator</PackageId>
+        <PackageReadmeFile>Package-README.md</PackageReadmeFile>
+        <PackageTags>WPF, ActiproSoftware, Actipro, Windows, UI, XAML, MVVM, ViewModel, View, Library, .NET, Fluent, Fluid, Extensions, Convenience methods, Source Generator</PackageTags>
+
+        <!-- Project is packable -->
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <DevelopmentDependency>true</DevelopmentDependency>
+        <IsPackable>true</IsPackable>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="FluentApi.Generator.Tests" />
+        <InternalsVisibleTo Include="FluentApi.Generator.Wpf.Tests" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Package the generator in the analyzer directory of the nuget package -->
+        <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
+        <None Include="Package-README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\BarComboBoxViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\RibbonBackstageViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\RibbonViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\DefaultProperty.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\CommandWithParameter.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\GetOnlyObservableCollection.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\BooleanProperty.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\HasVariantImages.fg-cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <PackageScribanIncludeSource>true</PackageScribanIncludeSource>
+        <DefineConstants>SCRIBAN_NO_ASYNC</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Scriban" IncludeAssets="Build"  PrivateAssets="all"/>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Common\" />
+    </ItemGroup>
+</Project>

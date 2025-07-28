@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-namespace Bars.Mvvm.Build;
+namespace Bars.Mvvm.FluentApi.Build;
 
 [ShutdownDotNetAfterServerBuild]
 public partial class Build : NukeBuild

@@ -14,14 +14,6 @@
         <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory).ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
-    <ItemGroup Condition="$(IsRoslynComponent) == 'true'">
-        <!-- Workaround: Project reference to FluidApi.Common is for some reason not included in the deploy, so while
-         I figure this one out in a reliable way, I work around it with Link -->
-        <Compile Include="..\FluidApi.Common\*.cs">
-            <Link>FluidApi.Common\%(RecursiveDir)%(FileName)%(Extension)</Link>
-        </Compile>
-    </ItemGroup>
-
     <ItemGroup>
         <PackageReference Include="Nerdbank.GitVersioning"
                           PrivateAssets="all"/>
