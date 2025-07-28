@@ -17,6 +17,10 @@ new BarToggleButtonViewModel(key)
 ```
 Release Notes:
 
+* 0.3.0
+  * Renamed package to `Bars.Mvvm.FluentApi.Generator` to better reflect terminology, rather than `Bars.Mvvm.FluidApi.Generator`. No changes to functionality.
+  * Continuing existing version history to maintain consistency with previous releases.
+
 * 0.2.0
   * Added some minor tweaks to the WithFooter convenience method for InfoBar padding to be 0 rather than the default padding.
   * Extended the sample application and cleaned up some code related to another project that will be split into its own repository.
