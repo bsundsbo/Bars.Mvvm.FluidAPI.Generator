@@ -7,7 +7,7 @@
         <Nullable>enable</Nullable>
         <UseWpf>true</UseWpf>
         <IsPackable>false</IsPackable>
-        <RootNamespace>Bars.Mvvm.FluidGenerator.Console</RootNamespace>
+        <RootNamespace>Bars.Mvvm.FluentApi.Console</RootNamespace>
     </PropertyGroup>
 
 	<ItemGroup>

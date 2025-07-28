@@ -12,7 +12,7 @@ using Scriban;
 namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 
 /// <summary>
-/// This generator is responsible for generating Fluid API for Bars MVVM ViewModels for easy configuration.
+/// This generator is responsible for generating Fluent API for Bars MVVM ViewModels for easy configuration.
 /// Example usage is
 /// <code>
 /// new BarButtonViewModel("key")
@@ -21,7 +21,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 ///     .WithImages(new BarImageProvider(), "key");
 /// </code>
 /// </summary>
-internal class FluidExtensionCodeGenerator(FluidExtensionPropertyParser parser)
+internal class FluentExtensionCodeGenerator(FluentExtensionPropertyParser parser)
 {
     private static int _counter;
     private readonly TemplateMapper _templateMapper = new();

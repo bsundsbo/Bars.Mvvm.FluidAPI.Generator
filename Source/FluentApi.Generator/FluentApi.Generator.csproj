@@ -37,14 +37,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\BarComboBoxViewModel.fg-cs" />
-        <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\RibbonBackstageViewModel.fg-cs" />
-        <EmbeddedResource Include="FluidCodeGenerator\CustomExtensions\Wpf\RibbonViewModel.fg-cs" />
-        <EmbeddedResource Include="FluidCodeGenerator\Templates\DefaultProperty.fg-cs"/>
-        <EmbeddedResource Include="FluidCodeGenerator\Templates\CommandWithParameter.fg-cs"/>
-        <EmbeddedResource Include="FluidCodeGenerator\Templates\GetOnlyObservableCollection.fg-cs"/>
-        <EmbeddedResource Include="FluidCodeGenerator\Templates\BooleanProperty.fg-cs"/>
-        <EmbeddedResource Include="FluidCodeGenerator\Templates\HasVariantImages.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\BarComboBoxViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\RibbonBackstageViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\CustomExtensions\Wpf\RibbonViewModel.fg-cs" />
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\DefaultProperty.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\CommandWithParameter.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\GetOnlyObservableCollection.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\BooleanProperty.fg-cs"/>
+        <EmbeddedResource Include="FluentCodeGenerator\Templates\HasVariantImages.fg-cs"/>
     </ItemGroup>
 
     <ItemGroup>

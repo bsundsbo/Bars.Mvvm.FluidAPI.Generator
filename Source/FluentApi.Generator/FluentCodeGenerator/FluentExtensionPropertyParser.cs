@@ -9,7 +9,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 /// <summary>
 /// Helper class for processing properties to generate code for.
 /// </summary>
-internal class FluidExtensionPropertyParser(TargetLibrary targetLibrary)
+internal class FluentExtensionPropertyParser(TargetLibrary targetLibrary)
 {
     public TargetLibrary TargetLibrary { get; } = targetLibrary;
     private const string _commandParameterSuffix = "CommandParameter";

@@ -1,6 +1,6 @@
 # Bars.Mvvm.FluentApi.Generator
 
-This source code generator generates extension methods for Actipro's WPF Bars ViewModels to allow for method chaining to set properties in a more fluid API style. 
+This source code generator generates extension methods for Actipro's WPF Bars ViewModels to allow for method chaining to set properties in a more Fluent API style. 
 
 # Features 
 * Extension methods for fluent property assignment.

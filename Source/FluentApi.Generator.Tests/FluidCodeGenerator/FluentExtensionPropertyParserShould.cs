@@ -3,9 +3,9 @@ using Bars.Mvvm.FluentApi.Generator.Extensions;
 using FluentAssertions;
 using Xunit;
 
-namespace Bars.Mvvm.FluentApi.Generator.Extensions.Tests.FluidCodeGenerator;
+namespace Bars.Mvvm.FluentApi.Generator.Extensions.Tests;
 
-public class FluidExtensionPropertyParserShould
+public class FluentExtensionPropertyParserShould
 {
     [Fact]
     public void Return_Empty_When_No_Public_Properties()
@@ -19,7 +19,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -39,7 +39,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -61,7 +61,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -88,7 +88,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -108,7 +108,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -131,7 +131,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyNamespace.MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert
@@ -155,7 +155,7 @@ public class FluidExtensionPropertyParserShould
 
         // Arrange
         var classSymbol = SymbolFactory.CreateClassSymbol(sourceCode, "MyClass");
-        var parser = new FluidExtensionPropertyParser(TargetLibrary.Wpf);
+        var parser = new FluentExtensionPropertyParser(TargetLibrary.Wpf);
         var result = parser.GetPropertyTemplateModels(classSymbol!);
 
         // Assert

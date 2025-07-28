@@ -13,7 +13,7 @@ namespace Bars.Mvvm.FluentApi.Generator.Extensions;
 /// The generator will support both WPF and Avalonia platforms, generating appropriate code based on the type of classes found in the referenced assemblies.
 /// </summary>
 [Generator(LanguageNames.CSharp)]
-public class FluidExtensionSourceGenerator : IIncrementalGenerator
+public class FluentExtensionSourceGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
@@ -70,8 +70,8 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
             return;
         }
 
-        var parser = new FluidExtensionPropertyParser(generatedFor);
-        var generator = new FluidExtensionCodeGenerator(parser);
+        var parser = new FluentExtensionPropertyParser(generatedFor);
+        var generator = new FluentExtensionCodeGenerator(parser);
         foreach (var classSymbol in classes)
         {
             try
@@ -84,7 +84,7 @@ public class FluidExtensionSourceGenerator : IIncrementalGenerator
                 var code = generator.Generate(classSymbol);
                 if (!string.IsNullOrWhiteSpace(code))
                 {
-                    context.AddSource($"{classSymbol.Name}.FluidExtensions.g.cs", code);
+                    context.AddSource($"{classSymbol.Name}.FluentExtensions.g.cs", code);
                 }
             }
             catch (Exception e)

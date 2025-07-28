@@ -7,7 +7,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <IsPackable>false</IsPackable>
-        <RootNamespace>Bars.Mvvm.FluidGenerator.Sample</RootNamespace>
+        <RootNamespace>Bars.Mvvm.FluentApi.Sample</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
