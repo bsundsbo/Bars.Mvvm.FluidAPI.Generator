@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Linq;
 using Microsoft.CodeAnalysis;
 
-namespace Bars.Mvvm.FluentApi.Generator.Extensions;
+namespace Bars.Mvvm.FluentApi.Generator;
 
 /// <summary>
 /// Code generator for generating Fluent API extensions for Actipro MVVM classes. These extensions provide easy chaining to set properties,
