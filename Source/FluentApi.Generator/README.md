@@ -10,11 +10,24 @@ This package generates extension methods for Actipro's WPF Bars ViewModels for b
 
 # [Release notes](./Package-README.md)
 
+# Limitation
+* The generator does not generate methods for BarGalleryItemViewModel<T>, though it does generate for classes deriving from this
+* Package must be added only once in a dependency chain as it will introduce ambiguity for classes that are generated in multiple projects using the same namespace.
+
 # Getting started
 ```
 dotnet add package Bars.Mvvm.FluentApi.Generator
 ```
 
+-- or -- 
+
+add the following to your `.csproj` file within an `<ItemGroup></ItemGroup>` section where other references go:
+```
+<PackageReference Include="Bars.Mvvm.FluentApi.Generator" Version="0.3.0">
+    <PrivateAssets>all</PrivateAssets>
+    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+</PackageReference>
+```
 ## Basic Usage
 
 ```csharp
