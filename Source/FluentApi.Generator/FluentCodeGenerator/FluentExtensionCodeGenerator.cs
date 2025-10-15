@@ -94,6 +94,11 @@ internal class FluentExtensionCodeGenerator(FluentExtensionPropertyParser parser
                 continue;
             }
 
+            if (propertyModel is IExtensionPropertyTemplateModel propertyTemplate && propertyTemplate.IsObsolete)
+            {
+                sourceBuilder.AppendLineWithIndent(1, $"[Obsolete(\"{propertyTemplate.PropertyName} is obsolete. See reason and workaround on the property itself.\")]");
+            }
+
             var output = template.Render(propertyModel, MemberRenamer);
             sourceBuilder.AppendLine(output);
         }
