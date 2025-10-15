@@ -26,12 +26,12 @@ internal record PropertyTemplateModel : IExtensionPropertyTemplateModel
     /// <summary>
     /// Namespace name of the class that contains the class where the property is declared.
     /// </summary>
-    public object NamespaceName { get; }
+    public string NamespaceName { get; }
 
     /// <summary>
     /// Class declaring the property.
     /// </summary>
-    public object ClassName { get; }
+    public string ClassName { get; }
 
     /// <summary>
     /// Formatted parameter name for the property, which is <see cref="PropertyName"/> in camel case.
