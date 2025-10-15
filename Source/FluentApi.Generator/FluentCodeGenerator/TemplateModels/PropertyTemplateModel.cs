@@ -50,6 +50,6 @@ internal record PropertyTemplateModel : IExtensionPropertyTemplateModel
 
     public override string ToString()
     {
-        return $"{nameof(NamespaceName)}: {NamespaceName}, {nameof(ClassName)}: {ClassName}, {nameof(ParameterName)}: {ParameterName}, {nameof(PropertyType)}: {PropertyType}, {nameof(PropertyName)}: {PropertyName} IsObsolete: {IsObsolete}";
+        return $"{nameof(NamespaceName)}: {NamespaceName}, {nameof(ClassName)}: {ClassName}, {nameof(ParameterName)}: {ParameterName}, {nameof(PropertyType)}: {PropertyType}, {nameof(PropertyName)}: {PropertyName}, {nameof(IsObsolete)}: {IsObsolete}";
     }
 }
