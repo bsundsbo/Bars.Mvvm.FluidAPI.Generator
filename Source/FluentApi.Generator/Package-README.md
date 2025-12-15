@@ -17,8 +17,12 @@ new BarToggleButtonViewModel(key)
 ```
 Release Notes:
 
+* 0.3.2
+  * Added extension methods for `RibbonViewModel.WithFirstTabSelected` and `RibbonViewModel.WithLastTabSelected`.
+
 * 0.3.1
   * Extension methods marked as [Obsolete] will also be marked as obsolete. Projects treating obsolete warnings as errors will no longer fail, and consumer will be informed about the obsolete properties.
+
 * 0.3.0
   * Renamed package to `Bars.Mvvm.FluentApi.Generator` to better reflect terminology, rather than `Bars.Mvvm.FluidApi.Generator`. No changes to functionality.
   * Continuing existing version history to maintain consistency with previous releases.
