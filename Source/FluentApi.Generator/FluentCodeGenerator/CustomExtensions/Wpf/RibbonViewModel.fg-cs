@@ -60,3 +60,23 @@
 
         return target.WithFooter(ribbonFooter);
     }
+
+    /// <summary>
+    /// Sets the <see cref="RibbonViewModel.SelectedItem"/> to the first tab.
+    /// </summary>
+    /// <param name="target">The control to modify.</param>
+    /// <returns></returns>
+    public static RibbonViewModel WithFirstTabSelected(this RibbonViewModel target)
+    {
+        return target.WithSelectedItem(target.Tabs[0]);
+    }
+
+    /// <summary>
+    /// Sets the <see cref="RibbonViewModel.SelectedItem"/> to the first tab.
+    /// </summary>
+    /// <param name="target">The control to modify.</param>
+    /// <returns>The RibbonViewModel to continue chaining.</returns>
+    public static RibbonViewModel WithLastTabSelected(this RibbonViewModel target)
+    {
+        return target.WithSelectedItem(target.Tabs[^1]);
+    }

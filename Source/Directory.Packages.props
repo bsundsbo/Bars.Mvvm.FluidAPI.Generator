@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-    <ActiproWpfVersion>25.1.0</ActiproWpfVersion>
+    <ActiproWpfVersion>25.1.2</ActiproWpfVersion>
     <ActiprAvaloniaVersion>25.1.0</ActiprAvaloniaVersion>
   </PropertyGroup>
   <!-- Analyzers -->

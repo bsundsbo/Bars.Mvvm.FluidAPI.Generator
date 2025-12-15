@@ -71,4 +71,29 @@ public class RibbonViewModelShould
             .Should().BeOfType<RibbonFooterInfoBarContentViewModel>()
             .Which.Message.Should().Be("Message");
     }
+
+    [Fact]
+    public void WithFirstTabSelected()
+    {
+        var ribbon = new RibbonViewModel()
+            .WithTab(new RibbonTabViewModel().WithLabel("Tab1"))
+            .WithFirstTabSelected();
+
+        // ASSERT
+        ribbon.SelectedItem.Should().BeOfType<RibbonTabViewModel>();
+        ribbon.SelectedItem.Label.Should().Be("Tab1");
+    }
+
+    [Fact]
+    public void WithLastTabSelected()
+    {
+        var ribbon = new RibbonViewModel()
+            .WithTab(new RibbonTabViewModel().WithLabel("Tab1"))
+            .WithTab(new RibbonTabViewModel().WithLabel("Tab2"))
+            .WithLastTabSelected();
+
+        // ASSERT
+        ribbon.SelectedItem.Should().BeOfType<RibbonTabViewModel>();
+        ribbon.SelectedItem.Label.Should().Be("Tab2");
+    }
 }
